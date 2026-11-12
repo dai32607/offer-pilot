@@ -1,0 +1,151 @@
+{
+  "schema" : "offerpilot.interview.snapshot/v1",
+  "caseId" : "S6PERSIST-FINISH17",
+  "taskNo" : "S6PERSIST-TEST3",
+  "recordedAt" : "2026-09-26 09:47:50",
+  "maxRound" : 5,
+  "roundCount" : 2,
+  "transcript" : [ {
+    "round" : 1,
+    "question" : "你简历提到参与2个A/B测试，请选择其中一个，说明实验背景与假设、核心指标、样本分流、显著性判断和结论。",
+    "focusDimension" : "项目与成果相关度",
+    "evidenceRef" : "E5",
+    "answerPoints" : [ "说明实验背景与明确的可量化假设", "指出核心指标及护栏指标", "说明分流方式、样本量或周期", "用统计方法判断结果显著性", "结论能支持产品/运营决策" ],
+    "followupHint" : "可追问样本量计算、置信水平/显著性方法或异常指标处理。",
+    "answer" : "我参与过的一个A/B实验是某零售App首页改版：背景是首页点击率连续下滑，核心假设是新首页信息密度更高能提升找货效率。采用用户ID随机分流50/50，样本约10万，实验两周。核心指标是首页CTR与加购转化率，辅以GMV和客诉量做护栏。结果实验组CTR提升1.8个百分点、加购转化率提升0.9个百分点，显著后全量上线，并用Tableau搭建监控看板。",
+    "score" : 82.0,
+    "strengths" : [ "能完整描述实验背景、假设、核心指标与护栏指标", "分流方式、样本量与实验周期明确，具备基本实验设计意识", "结论结合全量上线与Tableau监控，体现分析闭环" ],
+    "improvements" : [ "未说明显著性判断方法与置信水平/P值阈值", "假设中“提升找货效率”未转换为可量化的提升幅度", "样本量设定缺乏计算依据，未说明统计功效" ],
+    "answeredAt" : "2026-09-26T09:47:02.256",
+    "latencyMs" : 14390
+  }, {
+    "round" : 2,
+    "question" : "你简历写明 SQL 和 Tableau，实习也包含 SQL 数据提取和 Tableau 报表开发。请举一个你独立完成的 Tableau 报表或 SQL 取数分析：说明数据源、关键指标、SQL 处理逻辑，以及如何确保报表口径准确。",
+    "focusDimension" : "硬性技能匹配",
+    "evidenceRef" : "E2",
+    "answerPoints" : [ "具体业务场景、数据源与目标用户", "SQL提取、清洗或聚合关键逻辑", "Tableau维度、度量与筛选/参数设计", "口径校验、异常值处理或业务确认方式", "报表产出频率、使用对象与业务价值" ],
+    "followupHint" : "可追问SQL性能优化、复杂join/窗口函数，或Tableau的LOD表达式与参数联动实现。",
+    "answer" : null,
+    "score" : null,
+    "strengths" : [ ],
+    "improvements" : [ ],
+    "answeredAt" : null,
+    "latencyMs" : 29581
+  } ],
+  "score" : {
+    "avg_score" : 82.0,
+    "answered_rounds" : 1,
+    "planned_rounds" : 5,
+    "level" : "STRONG",
+    "per_round" : [ {
+      "round_no" : 1,
+      "score" : 82.0,
+      "focus_dimension" : "项目与成果相关度"
+    } ],
+    "dimensions" : [ {
+      "name" : "项目与成果相关度",
+      "score" : 82.0,
+      "round_no" : 1
+    } ],
+    "strengths" : [ {
+      "round_no" : 1,
+      "text" : "能完整描述实验背景、假设、核心指标与护栏指标"
+    }, {
+      "round_no" : 1,
+      "text" : "分流方式、样本量与实验周期明确，具备基本实验设计意识"
+    }, {
+      "round_no" : 1,
+      "text" : "结论结合全量上线与Tableau监控，体现分析闭环"
+    } ],
+    "improvements" : [ {
+      "round_no" : 1,
+      "text" : "未说明显著性判断方法与置信水平/P值阈值"
+    }, {
+      "round_no" : 1,
+      "text" : "假设中“提升找货效率”未转换为可量化的提升幅度"
+    }, {
+      "round_no" : 1,
+      "text" : "样本量设定缺乏计算依据，未说明统计功效"
+    } ],
+    "note" : "本场共评定 1 轮，平均分 82.0，档位 STRONG；分数仅用于练习自评，不代表真实面试结论。"
+  },
+  "summaryMd" : "## 总体评价\n本场计划 5 轮，实际仅完成 1 轮（第 2 轮未作答），平均分 82.0，档位 STRONG。第 1 轮对 A/B 实验的叙述与 JD 中「A/B 测试」要求匹配度较高，具备基本实验设计意识；最突出的短板是统计严谨性不足与硬技能未获举证——显著性判断、样本量依据均未展开，SQL/Tableau 的独立产出也未被验证。\n\n## 分维度表现\n- 项目与成果相关度（第 1 轮，82 分）：实验背景、假设、核心指标与护栏指标、分流方式与周期、上线结论闭环完整，但量化口径与统计细节偏弱。\n- 硬性技能匹配（第 2 轮）：该题未作答、无得分，SQL 取数逻辑与 Tableau 报表口径校验均未得到证明。\n\n## 薄弱环节\n1. 第 1 轮：未说明显著性判断方法与置信水平/P 值阈值，直接给出「显著」结论缺少统计支撑。\n2. 第 1 轮：假设中的「提升找货效率」未转换为可量化的提升幅度，指标定义偏模糊。\n3. 第 1 轮：约 10 万样本量缺乏计算依据，未提及统计功效或最小可检测效应。\n4. 第 2 轮：完全未作答，JD 要求的 SQL 与 Tableau 能力在本场没有任何证据。\n\n## 下一步准备建议\n1. 练习方向：就同一实验重讲一遍，补齐假设量化口径、样本量推算依据、显著性方法与阈值，并控制在 2 分钟内讲完。\n2. 需补知识点：A/B 测试统计基础（假设检验、置信区间、P 值、统计功效）以及 SQL 窗口函数与复杂 join、Tableau 的 LOD 表达式和报表口径校验流程。\n3. 表达结构：按「业务背景—数据源与口径—处理逻辑—校验方式—结论与价值」五段式准备一个独立完成的 SQL/Tableau 案例，并预演性能优化、异常值处理类追问。",
+  "status" : "FINISHED",
+  "events" : [ {
+    "name" : "interview.started",
+    "payloadJson" : "{\"max_round\":5,\"replay_mode\":false,\"level\":\"较匹配\",\"overall_score\":78.1}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":1}",
+    "offsetMs" : 10
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":3180}",
+    "offsetMs" : 3190
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":8176}",
+    "offsetMs" : 8186
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":13168}",
+    "offsetMs" : 13178
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":1,\"question\":\"你简历提到参与2个A/B测试，请选择其中一个，说明实验背景与假设、核心指标、样本分流、显著性判断和结论。\",\"focus_dimension\":\"项目与成果相关度\",\"evidence_ref\":\"E5\",\"max_round\":5}",
+    "offsetMs" : 14405
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"latency_ms\":14396,\"token_total\":3520,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 14412
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":1,\"answer_length\":174}",
+    "offsetMs" : 20432
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":2}",
+    "offsetMs" : 20442
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":2734}",
+    "offsetMs" : 23176
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":7734}",
+    "offsetMs" : 28176
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":12739}",
+    "offsetMs" : 33181
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":17742}",
+    "offsetMs" : 38184
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":22748}",
+    "offsetMs" : 43190
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":27748}",
+    "offsetMs" : 48190
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":1,\"score\":82.0,\"strengths\":[\"能完整描述实验背景、假设、核心指标与护栏指标\",\"分流方式、样本量与实验周期明确，具备基本实验设计意识\",\"结论结合全量上线与Tableau监控，体现分析闭环\"],\"improvements\":[\"未说明显著性判断方法与置信水平/P值阈值\",\"假设中“提升找货效率”未转换为可量化的提升幅度\",\"样本量设定缺乏计算依据，未说明统计功效\"]}",
+    "offsetMs" : 50028
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":2,\"question\":\"你简历写明 SQL 和 Tableau，实习也包含 SQL 数据提取和 Tableau 报表开发。请举一个你独立完成的 Tableau 报表或 SQL 取数分析：说明数据源、关键指标、SQL 处理逻辑，以及如何确保报表口径准确。\",\"focus_dimension\":\"硬性技能匹配\",\"evidence_ref\":\"E2\",\"max_round\":5}",
+    "offsetMs" : 50033
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"latency_ms\":29591,\"token_total\":5667,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 50038
+  }, {
+    "name" : "interview.finished",
+    "payloadJson" : "{\"status\":\"FINISHED\",\"round_no\":2,\"avg_score\":82.0,\"score\":{\"avg_score\":82.0,\"answered_rounds\":1,\"planned_rounds\":5,\"level\":\"STRONG\",\"per_round\":[{\"round_no\":1,\"score\":82.0,\"focus_dimension\":\"项目与成果相关度\"}],\"dimensions\":[{\"name\":\"项目与成果相关度\",\"score\":82.0,\"round_no\":1}],\"strengths\":[{\"round_no\":1,\"text\":\"能完整描述实验背景、假设、核心指标与护栏指标\"},{\"round_no\":1,\"text\":\"分流方式、样本量与实验周期明确，具备基本实验设计意识\"},{\"round_no\":1,\"text\":\"结论结合全量上线与Tableau监控，体现分析闭环\"}],\"improvements\":[{\"round_no\":1,\"text\":\"未说明显著性判断方法与置信水平/P值阈值\"},{\"round_no\":1,\"text\":\"假设中“提升找货效率”未转换为可量化的提升幅度\"},{\"round_no\":1,\"text\":\"样本量设定缺乏计算依据，未说明统计功效\"}],\"note\":\"本场共评定 1 轮，平均分 82.0，档位 STRONG；分数仅用于练习自评，不代表真实面试结论。\"},\"summary_md\":\"## 总体评价\\n本场计划 5 轮，实际仅完成 1 轮（第 2 轮未作答），平均分 82.0，档位 STRONG。第 1 轮对 A/B 实验的叙述与 JD 中「A/B 测试」要求匹配度较高，具备基本实验设计意识；最突出的短板是统计严谨性不足与硬技能未获举证——显著性判断、样本量依据均未展开，SQL/Tableau 的独立产出也未被验证。\\n\\n## 分维度表现\\n- 项目与成果相关度（第 1 轮，82 分）：实验背景、假设、核心指标与护栏指标、分流方式与周期、上线结论闭环完整，但量化口径与统计细节偏弱。\\n- 硬性技能匹配（第 2 轮）：该题未作答、无得分，SQL 取数逻辑与 Tableau 报表口径校验均未得到证明。\\n\\n## 薄弱环节\\n1. 第 1 轮：未说明显著性判断方法与置信水平/P 值阈值，直接给出「显著」结论缺少统计支撑。\\n2. 第 1 轮：假设中的「提升找货效率」未转换为可量化的提升幅度，指标定义偏模糊。\\n3. 第 1 轮：约 10 万样本量缺乏计算依据，未提及统计功效或最小可检测效应。\\n4. 第 2 轮：完全未作答，JD 要求的 SQL 与 Tableau 能力在本场没有任何证据。\\n\\n## 下一步准备建议\\n1. 练习方向：就同一实验重讲一遍，补齐假设量化口径、样本量推算依据、显著性方法与阈值，并控制在 2 分钟内讲完。\\n2. 需补知识点：A/B 测试统计基础（假设检验、置信区间、P 值、统计功效）以及 SQL 窗口函数与复杂 join、Tableau 的 LOD 表达式和报表口径校验流程。\\n3. 表达结构：按「业务背景—数据源与口径—处理逻辑—校验方式—结论与价值」五段式准备一个独立完成的 SQL/Tableau 案例，并预演性能优化、异常值处理类追问。\",\"finished_at\":\"2026-09-26T09:47:42.379\"}",
+    "offsetMs" : 60555
+  } ]
+}

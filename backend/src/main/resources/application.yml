@@ -1,0 +1,90 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: offerpilot-backend
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+deepseek:
+  base-url: https://api.deepseek.com
+  api-key: ${DEEPSEEK_API_KEY:}
+  model:
+    # deepseek-flash：解析/轻量任务（JD 解析、简历解析）
+    chat: deepseek-flash
+    # deepseek-v4-pro：评估/推理任务（匹配评估、改写建议、AI 面试官）
+    reasoner: deepseek-v4-pro
+  # 单次请求读取超时（秒）：解析类任务短、推理类任务长
+  timeout:
+    chat-seconds: 60
+    reasoner-seconds: 180
+    # 面试官单轮调用超时（秒）：需求 3.1 规定面试官硬超时 60 秒 / 轮
+    interview-seconds: 60
+
+# 匹配计分校准（S6 中间档校准）：硬性技能锚定校准
+offerpilot:
+  match-calibration:
+    # 是否启用硬性技能锚定校准（默认启用；关闭后回退为原五维加权计分）
+    enabled: true
+    # 校准总分 = alpha × 五维加权原始分 + hard-beta × 硬性技能匹配维度原始分 × 10
+    alpha: 0.7
+    hard-beta: 0.3
+    # 校准总分档位阈值：高度匹配 ≥ high；mid ~ (high-0.1) 较匹配；low ~ (mid-0.1) 一般；< low 不匹配
+    threshold:
+      high: 81
+      mid: 47
+      low: 20
+    # 校准未生效（硬性技能维度缺失或被剔除）时的回退阈值：80 / 60 / 40
+    fallback-threshold:
+      high: 80
+      mid: 60
+      low: 40
+
+  # ---- S7 演示时延治理 + 断网重放快照（所有开关默认不破坏真实调用链路）----
+  demo:
+    # 结果缓存：相同 JD + 简历输入直接返回已完成报告（内存 + 落盘）
+    cache:
+      enabled: true
+      dir: demo-cache
+      max-entries: 200
+    # 演示快照（离线回放）：断网时无需调用外部 API 即可完整回放报告与进度时间线
+    snapshot:
+      enabled: false
+      dir: demo-snapshots
+      # 回放节奏：1.0 = 与录制时一致；0.05 = 压缩约 20 倍（约 3 分钟压到约 9 秒）
+      speed: 0.05
+      # 单个事件间隔上限（毫秒），避免长停顿
+      max-gap-ms: 1200
+      # 离线模式下未命中快照时是否回退真实链路（true = 不翻车；false = 严格离线）
+      fallback-to-real: true
+  latency:
+    # 任务心跳与评估阶段进度心跳间隔（秒）：等待期间时间线保持可见进展
+    heartbeat-seconds: 5
+    agent-progress-seconds: 5
+    # 评估阶段改为流式消费：只改变消费方式与进度粒度，不改变最终报告
+    stream-eval: true
+    # 解析与评估软重叠（评估不等解析完成即启动）：默认关闭，保持既有链路行为
+    overlap-parse-eval: false
+  match-eval:
+    # 模型分级：pro（deepseek-v4-pro，质量优先，默认）| flash（deepseek-flash，时延优先）
+    model-tier: pro
+
+  # ---- S6 模拟面试会话（逐轮串行；快照回放复用 S7 机制）----
+  interview:
+    # 默认最大轮次（可通过 POST /interviews 的 max_round 覆盖，上限见 max-round-limit）
+    default-max-round: 3
+    max-round-limit: 5
+    # 面试快照目录（相对 backend 工作目录）：记录 / 回放面试链路事件序列
+    snapshot-dir: demo-snapshots
+    # 会话持久化目录（相对 backend 工作目录）：Jackson 落盘、启动自动恢复，重启不丢会话
+    session-dir: data/session
+    # 快照回放节奏：1.0 = 与录制一致；0.05 ≈ 压缩 20 倍
+    replay-speed: 0.05
+    # 回放时单事件间隔上限（毫秒）
+    replay-max-gap-ms: 1200
+    # 离线回放会话的事件间隔上限（毫秒），保证 3 分钟演示内跑完
+    replay-tick-max-gap-ms: 1500
+    # 历史快照 id 清单（演示用：GET /interviews/replays 列出）
+    replay-ids: C01,C02,C03

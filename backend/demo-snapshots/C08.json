@@ -1,0 +1,396 @@
+{
+  "caseId" : "C08",
+  "jdDigest" : "8f0740ef22cb82b23b67359621a66734594e0d28534bafa74046d70ccfed7faa",
+  "resumeDigest" : "f494a17912a736ae7cbb4767b89f8dba247ec387ca53a156964072b762f7eeda",
+  "createdAt" : "2026-09-21 15:30:19",
+  "matchModel" : "deepseek-v4-pro",
+  "durationMs" : 187567,
+  "tokenTotal" : 16071,
+  "response" : {
+    "report" : {
+      "overallScore" : 58.8,
+      "level" : "较匹配",
+      "dimensions" : [ {
+        "name" : "硬性技能匹配",
+        "weight" : 30.0,
+        "score" : 15.0,
+        "maxScore" : 30.0,
+        "conclusion" : "命中Java/SpringBoot/MySQL/Git，缺MyBatis",
+        "evidence" : [ {
+          "evidenceId" : "E1",
+          "source" : "jd",
+          "quote" : "熟悉 Spring Boot、MyBatis 框架"
+        }, {
+          "evidenceId" : "E2",
+          "source" : "resume",
+          "quote" : "Java、Spring Boot（课程学习）"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "经验年限与职级",
+        "weight" : 20.0,
+        "score" : 20.0,
+        "maxScore" : 20.0,
+        "conclusion" : "校招无年限要求，2026届本科在读符合",
+        "evidence" : [ {
+          "evidenceId" : "E3",
+          "source" : "jd",
+          "quote" : "2026 届"
+        }, {
+          "evidenceId" : "E4",
+          "source" : "resume",
+          "quote" : "2022.09-2026.06"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "项目与成果相关度",
+        "weight" : 25.0,
+        "score" : 10.0,
+        "maxScore" : 25.0,
+        "conclusion" : "课程设计仅实现增删改查，缺接口与数据库开发",
+        "evidence" : [ {
+          "evidenceId" : "E5",
+          "source" : "jd",
+          "quote" : "完成数据库表设计、接口开发与联调"
+        }, {
+          "evidenceId" : "E6",
+          "source" : "resume",
+          "quote" : "使用文件存储数据，完成 6 个功能模块"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "教育与证书",
+        "weight" : 10.0,
+        "score" : 10.0,
+        "maxScore" : 10.0,
+        "conclusion" : "学历专业及2026届要求完全符合",
+        "evidence" : [ {
+          "evidenceId" : "E7",
+          "source" : "jd",
+          "quote" : "本科及以上学历，计算机相关专业，2026 届"
+        }, {
+          "evidenceId" : "E8",
+          "source" : "resume",
+          "quote" : "软件工程 本科 2022.09-2026.06"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "加分项与潜力",
+        "weight" : 15.0,
+        "score" : 7.5,
+        "maxScore" : 15.0,
+        "conclusion" : "有项目经历，Redis与算法基础未明确体现",
+        "evidence" : [ {
+          "evidenceId" : "E9",
+          "source" : "jd",
+          "quote" : "有实习或项目经历"
+        }, {
+          "evidenceId" : "E10",
+          "source" : "resume",
+          "quote" : "图书管理系统课程设计"
+        } ],
+        "uncertainty" : false
+      } ],
+      "hits" : [ {
+        "requirement" : "2026 届",
+        "resumeQuote" : "2022.09-2026.06",
+        "comment" : "届数匹配"
+      }, {
+        "requirement" : "熟悉 Java 基础与面向对象编程",
+        "resumeQuote" : "Java、Spring Boot（课程学习）",
+        "comment" : "命中Java基础"
+      }, {
+        "requirement" : "有实习或项目经历",
+        "resumeQuote" : "图书管理系统课程设计",
+        "comment" : "命中项目经历加分"
+      } ],
+      "gaps" : [ {
+        "requirement" : "熟悉 MyBatis 框架",
+        "gapType" : "技能缺失",
+        "severity" : "高",
+        "suggestion" : "补充MyBatis学习并使用"
+      }, {
+        "requirement" : "MySQL 基本操作与 SQL 编写",
+        "gapType" : "技能缺失",
+        "severity" : "中",
+        "suggestion" : "强化SQL与数据库设计实践"
+      }, {
+        "requirement" : "了解 Redis 缓存",
+        "gapType" : "技能缺失",
+        "severity" : "低",
+        "suggestion" : "了解Redis基本使用"
+      } ],
+      "risks" : [ {
+        "risk" : "项目经验与后端岗位匹配度低",
+        "reason" : "课程设计为控制台版，文件存储",
+        "evidenceRef" : null
+      }, {
+        "risk" : "核心框架实践不足可能影响评估",
+        "reason" : "Spring Boot仅为课程学习",
+        "evidenceRef" : null
+      } ],
+      "evidenceIndex" : [ {
+        "evidenceId" : "E1",
+        "source" : "jd",
+        "quote" : "熟悉 Spring Boot、MyBatis 框架"
+      }, {
+        "evidenceId" : "E2",
+        "source" : "resume",
+        "quote" : "Java、Spring Boot（课程学习）"
+      }, {
+        "evidenceId" : "E3",
+        "source" : "jd",
+        "quote" : "2026 届"
+      }, {
+        "evidenceId" : "E4",
+        "source" : "resume",
+        "quote" : "2022.09-2026.06"
+      }, {
+        "evidenceId" : "E5",
+        "source" : "jd",
+        "quote" : "完成数据库表设计、接口开发与联调"
+      }, {
+        "evidenceId" : "E6",
+        "source" : "resume",
+        "quote" : "使用文件存储数据，完成 6 个功能模块"
+      }, {
+        "evidenceId" : "E7",
+        "source" : "jd",
+        "quote" : "本科及以上学历，计算机相关专业，2026 届"
+      }, {
+        "evidenceId" : "E8",
+        "source" : "resume",
+        "quote" : "软件工程 本科 2022.09-2026.06"
+      }, {
+        "evidenceId" : "E9",
+        "source" : "jd",
+        "quote" : "有实习或项目经历"
+      }, {
+        "evidenceId" : "E10",
+        "source" : "resume",
+        "quote" : "图书管理系统课程设计"
+      } ],
+      "uncertaintyFlags" : [ ],
+      "notes" : [ "总分采用「硬性技能锚定校准」：校准总分 = 0.70 × 五维加权原始分 + 0.30 × 硬性技能匹配原始分 × 10；本次五维加权原始分 62.5 分，硬性技能匹配原始分 5.0/10，校准后总分 58.8 分。档位阈值：高度匹配 ≥ 81.0；47.0–80.9 较匹配；20.0–46.9 一般；< 20.0 不匹配。" ]
+    },
+    "meta" : {
+      "jdParse" : {
+        "agent" : "jd-parse",
+        "model" : "deepseek-flash",
+        "elapsedMs" : 5260,
+        "promptTokens" : 596,
+        "completionTokens" : 1208,
+        "totalTokens" : 1804,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "resumeParse" : {
+        "agent" : "resume-parse",
+        "model" : "deepseek-flash",
+        "elapsedMs" : 13261,
+        "promptTokens" : 622,
+        "completionTokens" : 3134,
+        "totalTokens" : 3756,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "matchEval" : {
+        "agent" : "match-eval",
+        "model" : "deepseek-v4-pro",
+        "elapsedMs" : 174304,
+        "promptTokens" : 1322,
+        "completionTokens" : 9189,
+        "totalTokens" : 10511,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "matchModel" : "deepseek-v4-pro",
+      "dimensionCount" : 5,
+      "uncertaintyCount" : 0,
+      "invalidDimensions" : [ ],
+      "renormalized" : false,
+      "retryReason" : null
+    }
+  },
+  "events" : [ {
+    "name" : "task.started",
+    "payloadJson" : "{\"total_agents\":3}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-flash\",\"agent_name\":\"JD_PARSE\"}",
+    "offsetMs" : 1
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-flash\",\"agent_name\":\"RESUME_PARSE\"}",
+    "offsetMs" : 1
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":4078,\"agent_name\":\"RESUME_PARSE\"}",
+    "offsetMs" : 4079
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"JD_PARSE\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":1804,\"latency_ms\":5260}",
+    "offsetMs" : 5261
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"RESUME_PARSE\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":3756,\"latency_ms\":13261}",
+    "offsetMs" : 13262
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-v4-pro\",\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 13262
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":817,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 14079
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":5822,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 19084
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":10817,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 24079
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":15817,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 29079
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":20815,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 34078
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":25814,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 39076
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":30816,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 44078
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":35813,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 49075
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":40813,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 54075
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":45822,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 59084
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":50825,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 64087
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":55818,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 69080
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":60823,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 74085
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":65819,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 79081
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":70814,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 84076
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":75813,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 89075
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":80820,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 94082
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":85822,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 99085
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":90827,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 104089
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":95817,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 109079
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":100828,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 114090
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":105826,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 119088
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":110824,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 124086
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":115825,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 129087
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":120823,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 134085
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":125820,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 139082
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":130824,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 144086
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":135811,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 149073
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":140814,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 154076
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":145816,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 159078
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":150821,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 164083
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":155826,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 169088
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":160814,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 174076
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":165812,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 179074
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":170812,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 184074
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"MATCH_EVAL\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":10511,\"latency_ms\":174304}",
+    "offsetMs" : 187567
+  }, {
+    "name" : "report.ready",
+    "payloadJson" : "{\"overall_score\":58.8,\"cache_hit\":false,\"report_url\":\"/api/v1/tasks/s7a-C08/report\",\"level\":\"较匹配\"}",
+    "offsetMs" : 187571
+  }, {
+    "name" : "task.finished",
+    "payloadJson" : "{\"status\":\"SUCCEEDED\",\"token_total\":16071,\"duration_ms\":187567}",
+    "offsetMs" : 187571
+  } ]
+}

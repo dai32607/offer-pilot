@@ -1,0 +1,227 @@
+{
+  "schema" : "offerpilot.interview.snapshot/v1",
+  "caseId" : "S6PERSIST-C15",
+  "taskNo" : "S6PERSIST-TEST2",
+  "recordedAt" : "2026-09-26 09:44:19",
+  "maxRound" : 3,
+  "roundCount" : 3,
+  "transcript" : [ {
+    "round" : 1,
+    "question" : "你简历提到参与过2个A/B测试，请选择其中一个，说明实验背景、核心假设、分流方式和评估指标。",
+    "focusDimension" : "项目与成果相关度",
+    "evidenceRef" : "E5",
+    "answerPoints" : [ "说明实验背景与业务目标", "明确原假设与备择假设", "描述随机分流与样本分配方式", "给出核心评估指标及口径", "解读结果并说明业务决策" ],
+    "followupHint" : "追问其指标选择原因、显著性判断方式，以及实验结果如何用Tableau呈现。",
+    "answer" : "我参与过的一个A/B实验是某零售App首页改版：背景是首页点击率连续两季度下滑，业务目标是提升点击率与转化率。核心假设是信息密度更高的新首页能提升用户找到目标商品的效率。采用用户ID随机分流，实验组与对照组各50%样本，实验周期两周，样本量约10万。核心评估指标为主页点击率CTR、加购转化率、人均浏览商品数，辅以GMV与客诉量做护栏。结果实验组CTR提升1.8个百分点、加购转化率提升0.9个百分点，差异显著，随后全量上线，并用Tableau搭建了实验监控看板持续追踪。",
+    "score" : 88.0,
+    "strengths" : [ "实验背景、假设、分流和样本量交代完整", "给出了量化结果并关联业务上线决策", "提到用Tableau持续监控，贴合JD可视化要求" ],
+    "improvements" : [ "未说明显著性判断方法，如p值或置信区间", "护栏指标仅列名称，未展开异常时如何决策" ],
+    "answeredAt" : "2026-09-26T09:32:31.004",
+    "latencyMs" : 18423
+  }, {
+    "round" : 2,
+    "question" : "你简历技能中写了SQL，JD也要求SQL进行数据提取和分析。请举一个你在实习中用SQL完成的取数或分析场景，说明你的查询逻辑和指标口径。",
+    "focusDimension" : "硬性技能匹配",
+    "evidenceRef" : "E2",
+    "answerPoints" : [ "说明业务场景、目标表及字段口径", "描述多表关联、过滤和聚合逻辑", "提及去重、空值或异常值处理", "说明结果如何校验数据准确性", "关联业务解释分析结论" ],
+    "followupHint" : "追问若数据量增大如何优化SQL，或遇到重复、脏数据如何处理。",
+    "answer" : "SQL方面我做过订单、商品、用户三表关联分析，常用窗口函数做同环比与留存计算。比如搭建经营看板时，我用SQL按日汇总GMV、UV、转化率，并用ROW_NUMBER去重取每个用户最近一次有效订单；周维度用LAG算环比。慢查询优化上，我会给关联键和过滤条件建索引，避免SELECT星号，用EXPLAIN看执行计划。数据量大的时候会先做聚合下推，把明细层和汇总层分开，保证看板查询在秒级返回。",
+    "score" : 87.0,
+    "strengths" : [ "能具体说明三表关联、窗口函数和看板计算场景", "提到索引、EXPLAIN与聚合下推，体现SQL优化意识", "回答与业务看板需求结合，展示实用分析能力" ],
+    "improvements" : [ "未明确给出关键指标口径，如UV、GMV的去重逻辑", "缺少对查询结果准确性的校验方法说明", "空值、异常值处理只概括提及，未结合场景展开" ],
+    "answeredAt" : "2026-09-26T09:33:05.970",
+    "latencyMs" : 22064
+  }, {
+    "round" : 3,
+    "question" : "JD明确优先统计、计算机、数学等相关专业，但简历中未体现你的专业，仅写了CET-6。请说明你的专业是否属于相关方向，以及在校课程、证书或自学经历如何支撑你胜任数据分析工作？",
+    "focusDimension" : "教育与证书",
+    "evidenceRef" : "E6",
+    "answerPoints" : [ "说明专业名称及是否属于统计、计算机、数学相关方向", "列举相关课程或证书，如统计、数据结构、数据库等", "若专业不相关，补充自学或实习中补足的知识点", "说明CET-6在英文文档、BI工具中的实际帮助", "提供其他可验证的学习经历，如公开课或竞赛" ],
+    "followupHint" : "若专业不相关，追问其补过哪些统计或实验设计课程，并举例说明应用。",
+    "answer" : "JD优先统计学专业这点我认为是匹配的：我是统计学本科在读，系统学过概率论、数理统计、回归分析和实验设计，所以A/B实验里的显著性检验、置信区间、样本量估算这些我能讲清楚原理而不是只套模板。结合业务上，我会用假设检验判断实验组指标差异是否显著，用效应量评估实际业务意义，避免只盯p值。统计学背景也帮我更好地理解用户分层、抽样偏差这些数据质量问题。",
+    "score" : null,
+    "strengths" : [ ],
+    "improvements" : [ ],
+    "answeredAt" : "2026-09-26T09:44:08.252",
+    "latencyMs" : 28596
+  } ],
+  "score" : {
+    "avg_score" : 87.5,
+    "answered_rounds" : 2,
+    "planned_rounds" : 3,
+    "level" : "STRONG",
+    "per_round" : [ {
+      "round_no" : 1,
+      "score" : 88.0,
+      "focus_dimension" : "项目与成果相关度"
+    }, {
+      "round_no" : 2,
+      "score" : 87.0,
+      "focus_dimension" : "硬性技能匹配"
+    } ],
+    "dimensions" : [ {
+      "name" : "项目与成果相关度",
+      "score" : 88.0,
+      "round_no" : 1
+    }, {
+      "name" : "硬性技能匹配",
+      "score" : 87.0,
+      "round_no" : 2
+    } ],
+    "strengths" : [ {
+      "round_no" : 1,
+      "text" : "实验背景、假设、分流和样本量交代完整"
+    }, {
+      "round_no" : 1,
+      "text" : "给出了量化结果并关联业务上线决策"
+    }, {
+      "round_no" : 1,
+      "text" : "提到用Tableau持续监控，贴合JD可视化要求"
+    }, {
+      "round_no" : 2,
+      "text" : "能具体说明三表关联、窗口函数和看板计算场景"
+    }, {
+      "round_no" : 2,
+      "text" : "提到索引、EXPLAIN与聚合下推，体现SQL优化意识"
+    }, {
+      "round_no" : 2,
+      "text" : "回答与业务看板需求结合，展示实用分析能力"
+    } ],
+    "improvements" : [ {
+      "round_no" : 1,
+      "text" : "未说明显著性判断方法，如p值或置信区间"
+    }, {
+      "round_no" : 1,
+      "text" : "护栏指标仅列名称，未展开异常时如何决策"
+    }, {
+      "round_no" : 2,
+      "text" : "未明确给出关键指标口径，如UV、GMV的去重逻辑"
+    }, {
+      "round_no" : 2,
+      "text" : "缺少对查询结果准确性的校验方法说明"
+    }, {
+      "round_no" : 2,
+      "text" : "空值、异常值处理只概括提及，未结合场景展开"
+    } ],
+    "note" : "本场共评定 2 轮，平均分 87.5，档位 STRONG；分数仅用于练习自评，不代表真实面试结论。"
+  },
+  "summaryMd" : "## 总体评价\n本场共评定 2 轮，平均 87.5 分，档位 STRONG。候选人对 JD 核心要求（A/B 实验、SQL 取数、Tableau 可视化）均有可落地的实战叙述，项目与硬技能两条主线都站得住。最突出的短板是\"讲得多、收得少\"：统计判断口径、指标定义与数据校验等关键细节被一笔带过，深度不足。\n\n## 分维度表现\n- 项目与成果相关度（第 1 轮，88 分）：实验背景、假设、分流方式、样本量与量化结果交代完整，并关联到全量上线决策，贴合 JD。\n- 硬性技能匹配（第 2 轮，87 分）：三表关联、窗口函数、索引与 EXPLAIN 优化叙述具体，能与看板业务场景挂钩。\n- 教育与证书（第 3 轮）：本轮未评分，回答以统计学课程与实验设计原理回应 JD 专业偏好，但未回应 CET-6 的实际用途。\n\n## 薄弱环节\n1. 统计严谨性未落地（第 1 轮）：只说\"差异显著\"，未给 p 值、置信区间或显著性判断方法，也未说明护栏指标异常时如何决策。\n2. 指标口径不清晰（第 2 轮）：UV、GMV 等关键指标的去重逻辑未明确，指标定义停留在名称层面。\n3. 数据质量处理缺场景（第 2 轮）：空值、异常值仅概括提及，且缺少查询结果的校验方法说明。\n4. 证书价值未说明（第 3 轮）：JD 提到英文环境，但未展开 CET-6 在英文文档或 BI 工具中的实际帮助。\n\n## 下一步准备建议\n1. 练习方向：把两个 A/B 实验各做一次 3 分钟口述演练，强制包含\"假设—分流—指标口径—显著性判断—护栏与决策\"五要素，并追问自己每个数字的来源。\n2. 补知识点：系统整理假设检验与置信区间的业务解释、样本量估算方法，以及 UV/GMV 等常用指标的去重与统计口径定义。\n3. 表达结构：采用\"结论先行 + 口径定义 + 校验方式\"三段式回答 SQL 题，末尾主动补一句数据异常或脏数据的处理实例，避免细节被追问才补齐。",
+  "status" : "FINISHED",
+  "events" : [ {
+    "name" : "interview.started",
+    "payloadJson" : "{\"max_round\":3,\"replay_mode\":false,\"level\":\"较匹配\",\"overall_score\":78.1}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":1}",
+    "offsetMs" : 11
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":0,\"elapsed_ms\":4957,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 4968
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":0,\"elapsed_ms\":9956,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 9967
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":0,\"elapsed_ms\":14957,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 14968
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":1,\"question\":\"你简历提到参与过2个A/B测试，请选择其中一个，说明实验背景、核心假设、分流方式和评估指标。\",\"focus_dimension\":\"项目与成果相关度\",\"evidence_ref\":\"E5\",\"max_round\":3}",
+    "offsetMs" : 18438
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"latency_ms\":18435,\"token_total\":3828,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 18450
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":1,\"answer_length\":236}",
+    "offsetMs" : 37139
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":2}",
+    "offsetMs" : 37143
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":1,\"elapsed_ms\":2825,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 39968
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":1,\"elapsed_ms\":7815,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 44958
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":1,\"elapsed_ms\":12819,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 49962
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":1,\"elapsed_ms\":17826,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 54969
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":1,\"score\":88.0,\"strengths\":[\"实验背景、假设、分流和样本量交代完整\",\"给出了量化结果并关联业务上线决策\",\"提到用Tableau持续监控，贴合JD可视化要求\"],\"improvements\":[\"未说明显著性判断方法，如p值或置信区间\",\"护栏指标仅列名称，未展开异常时如何决策\"]}",
+    "offsetMs" : 59214
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":2,\"question\":\"你简历技能中写了SQL，JD也要求SQL进行数据提取和分析。请举一个你在实习中用SQL完成的取数或分析场景，说明你的查询逻辑和指标口径。\",\"focus_dimension\":\"硬性技能匹配\",\"evidence_ref\":\"E2\",\"max_round\":3}",
+    "offsetMs" : 59224
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"latency_ms\":22081,\"token_total\":4787,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 59231
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":2,\"answer_length\":193}",
+    "offsetMs" : 72106
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":3}",
+    "offsetMs" : 72111
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":2857,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 74968
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":7854,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 79965
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":12855,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 84966
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":17849,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 89960
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":22852,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 94963
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"round_no\":2,\"elapsed_ms\":27861,\"agent_name\":\"INTERVIEWER\"}",
+    "offsetMs" : 99972
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":2,\"score\":87.0,\"strengths\":[\"能具体说明三表关联、窗口函数和看板计算场景\",\"提到索引、EXPLAIN与聚合下推，体现SQL优化意识\",\"回答与业务看板需求结合，展示实用分析能力\"],\"improvements\":[\"未明确给出关键指标口径，如UV、GMV的去重逻辑\",\"缺少对查询结果准确性的校验方法说明\",\"空值、异常值处理只概括提及，未结合场景展开\"]}",
+    "offsetMs" : 100712
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":3,\"question\":\"JD明确优先统计、计算机、数学等相关专业，但简历中未体现你的专业，仅写了CET-6。请说明你的专业是否属于相关方向，以及在校课程、证书或自学经历如何支撑你胜任数据分析工作？\",\"focus_dimension\":\"教育与证书\",\"evidence_ref\":\"E6\",\"max_round\":3}",
+    "offsetMs" : 100718
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"latency_ms\":28607,\"token_total\":5655,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 100723
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":3,\"answer_length\":172}",
+    "offsetMs" : 734387
+  }, {
+    "name" : "interview.finished",
+    "payloadJson" : "{\"status\":\"FINISHED\",\"round_no\":3,\"avg_score\":87.5,\"score\":{\"avg_score\":87.5,\"answered_rounds\":2,\"planned_rounds\":3,\"level\":\"STRONG\",\"per_round\":[{\"round_no\":1,\"score\":88.0,\"focus_dimension\":\"项目与成果相关度\"},{\"round_no\":2,\"score\":87.0,\"focus_dimension\":\"硬性技能匹配\"}],\"dimensions\":[{\"name\":\"项目与成果相关度\",\"score\":88.0,\"round_no\":1},{\"name\":\"硬性技能匹配\",\"score\":87.0,\"round_no\":2}],\"strengths\":[{\"round_no\":1,\"text\":\"实验背景、假设、分流和样本量交代完整\"},{\"round_no\":1,\"text\":\"给出了量化结果并关联业务上线决策\"},{\"round_no\":1,\"text\":\"提到用Tableau持续监控，贴合JD可视化要求\"},{\"round_no\":2,\"text\":\"能具体说明三表关联、窗口函数和看板计算场景\"},{\"round_no\":2,\"text\":\"提到索引、EXPLAIN与聚合下推，体现SQL优化意识\"},{\"round_no\":2,\"text\":\"回答与业务看板需求结合，展示实用分析能力\"}],\"improvements\":[{\"round_no\":1,\"text\":\"未说明显著性判断方法，如p值或置信区间\"},{\"round_no\":1,\"text\":\"护栏指标仅列名称，未展开异常时如何决策\"},{\"round_no\":2,\"text\":\"未明确给出关键指标口径，如UV、GMV的去重逻辑\"},{\"round_no\":2,\"text\":\"缺少对查询结果准确性的校验方法说明\"},{\"round_no\":2,\"text\":\"空值、异常值处理只概括提及，未结合场景展开\"}],\"note\":\"本场共评定 2 轮，平均分 87.5，档位 STRONG；分数仅用于练习自评，不代表真实面试结论。\"},\"summary_md\":\"## 总体评价\\n本场共评定 2 轮，平均 87.5 分，档位 STRONG。候选人对 JD 核心要求（A/B 实验、SQL 取数、Tableau 可视化）均有可落地的实战叙述，项目与硬技能两条主线都站得住。最突出的短板是\\\"讲得多、收得少\\\"：统计判断口径、指标定义与数据校验等关键细节被一笔带过，深度不足。\\n\\n## 分维度表现\\n- 项目与成果相关度（第 1 轮，88 分）：实验背景、假设、分流方式、样本量与量化结果交代完整，并关联到全量上线决策，贴合 JD。\\n- 硬性技能匹配（第 2 轮，87 分）：三表关联、窗口函数、索引与 EXPLAIN 优化叙述具体，能与看板业务场景挂钩。\\n- 教育与证书（第 3 轮）：本轮未评分，回答以统计学课程与实验设计原理回应 JD 专业偏好，但未回应 CET-6 的实际用途。\\n\\n## 薄弱环节\\n1. 统计严谨性未落地（第 1 轮）：只说\\\"差异显著\\\"，未给 p 值、置信区间或显著性判断方法，也未说明护栏指标异常时如何决策。\\n2. 指标口径不清晰（第 2 轮）：UV、GMV 等关键指标的去重逻辑未明确，指标定义停留在名称层面。\\n3. 数据质量处理缺场景（第 2 轮）：空值、异常值仅概括提及，且缺少查询结果的校验方法说明。\\n4. 证书价值未说明（第 3 轮）：JD 提到英文环境，但未展开 CET-6 在英文文档或 BI 工具中的实际帮助。\\n\\n## 下一步准备建议\\n1. 练习方向：把两个 A/B 实验各做一次 3 分钟口述演练，强制包含\\\"假设—分流—指标口径—显著性判断—护栏与决策\\\"五要素，并追问自己每个数字的来源。\\n2. 补知识点：系统整理假设检验与置信区间的业务解释、样本量估算方法，以及 UV/GMV 等常用指标的去重与统计口径定义。\\n3. 表达结构：采用\\\"结论先行 + 口径定义 + 校验方式\\\"三段式回答 SQL 题，末尾主动补一句数据异常或脏数据的处理实例，避免细节被追问才补齐。\",\"finished_at\":\"2026-09-26T09:44:11.877\"}",
+    "offsetMs" : 738012
+  } ]
+}

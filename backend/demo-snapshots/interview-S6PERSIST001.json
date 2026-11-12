@@ -1,0 +1,169 @@
+{
+  "schema" : "offerpilot.interview.snapshot/v1",
+  "caseId" : "S6PERSIST001",
+  "taskNo" : "S6PERSIST001",
+  "recordedAt" : "2026-09-25 15:57:30",
+  "maxRound" : 3,
+  "roundCount" : 2,
+  "transcript" : [ {
+    "round" : 1,
+    "question" : "你在实习中负责订单查询慢SQL优化，为订单明细表补充联合索引，接口响应时间从800ms降至210ms。请具体说明你如何定位该慢SQL、原索引存在什么问题、联合索引字段顺序的设计依据，以及如何验证优化效果并避免影响其他查询？",
+    "focusDimension" : "项目与成果相关度",
+    "evidenceRef" : "E6",
+    "answerPoints" : [ "使用EXPLAIN分析执行计划，定位全表扫描或索引失效", "原索引缺失或字段顺序不匹配查询条件，导致扫描行数过多", "联合索引按最左前缀原则设计，高区分度字段放在前面", "通过慢查询日志和压测验证响应时间降至210ms左右", "关注索引对写入、存储的影响，确认对其他查询无负面作用" ],
+    "followupHint" : "若提到最左前缀，可追问联合索引在范围查询、回表与覆盖索引场景下的具体表现。",
+    "answer" : "我会引入 Nacos 做服务注册与发现，用 Spring Cloud Gateway 做网关，服务间调用走 OpenFeign，配置统一放 Nacos Config，同时加 Sentinel 做熔断降级。",
+    "score" : 12.0,
+    "strengths" : [ "体现对微服务注册发现、网关、配置中心、熔断降级等概念有一定了解" ],
+    "improvements" : [ "完全偏离慢 SQL 优化问题，未涉及 EXPLAIN、索引与响应时间验证", "未结合订单中心接口开发的查询场景作答", "应聚焦问题重点，避免罗列无关技术组件" ],
+    "answeredAt" : "2026-09-25T15:55:06.098",
+    "latencyMs" : 22601
+  }, {
+    "round" : 2,
+    "question" : "JD 要求了解 Spring Cloud 微服务组件，但你的简历未体现。请说明 Spring Cloud 在服务注册与发现、配置管理、网关方面的核心组件与作用，并简述其在订单中心接口场景中的价值。",
+    "focusDimension" : "硬性技能匹配",
+    "evidenceRef" : "E1",
+    "answerPoints" : [ "服务注册发现组件维护实例列表，支持健康检查与动态上下线", "配置管理组件集中化管理各服务配置，支持动态刷新", "网关作为统一入口，负责路由转发、鉴权与限流", "可通过熔断降级避免故障扩散，提升整体可用性", "结合订单中心可拆分订单、商品、用户等边界服务" ],
+    "followupHint" : "若答出组件作用，可追问服务注册健康检查与配置动态刷新机制，或订单中心服务拆分边界。",
+    "answer" : null,
+    "score" : null,
+    "strengths" : [ ],
+    "improvements" : [ ],
+    "answeredAt" : null,
+    "latencyMs" : 51550
+  } ],
+  "score" : {
+    "avg_score" : 12.0,
+    "answered_rounds" : 1,
+    "planned_rounds" : 3,
+    "level" : "WEAK",
+    "per_round" : [ {
+      "round_no" : 1,
+      "score" : 12.0,
+      "focus_dimension" : "项目与成果相关度"
+    } ],
+    "dimensions" : [ {
+      "name" : "项目与成果相关度",
+      "score" : 12.0,
+      "round_no" : 1
+    } ],
+    "strengths" : [ {
+      "round_no" : 1,
+      "text" : "体现对微服务注册发现、网关、配置中心、熔断降级等概念有一定了解"
+    } ],
+    "improvements" : [ {
+      "round_no" : 1,
+      "text" : "完全偏离慢 SQL 优化问题，未涉及 EXPLAIN、索引与响应时间验证"
+    }, {
+      "round_no" : 1,
+      "text" : "未结合订单中心接口开发的查询场景作答"
+    }, {
+      "round_no" : 1,
+      "text" : "应聚焦问题重点，避免罗列无关技术组件"
+    } ],
+    "note" : "本场共评定 1 轮，平均分 12.0，档位 WEAK；分数仅用于练习自评，不代表真实面试结论。"
+  },
+  "summaryMd" : "## 总体评价\n\n本场模拟面试仅完成 1 轮有效作答，平均分 12.0，档位 WEAK。简历中订单中心慢 SQL 优化是与 JD 高度相关的亮点，但候选人答以 Nacos、Gateway、OpenFeign、Sentinel 等微服务组件，与提问完全错位，最突出的短板是答非所问、未按题意组织内容。\n\n## 分维度表现\n\n- 项目与成果相关度（第 1 轮，12.0 分）：回答体现了对注册发现、网关、配置中心、熔断降级等概念的基本了解，但未回应所问的慢 SQL 优化本身，该维度得分偏低。\n\n## 薄弱环节\n\n1. 第 1 轮：完全偏离慢 SQL 优化问题，未涉及 EXPLAIN 执行计划、索引设计与响应时间验证，而这些正是简历中自己写下的成果，却无法展开。\n2. 第 1 轮：未结合订单中心接口的查询场景作答，缺乏业务上下文，回答停留在组件名词罗列。\n3. 第 1 轮：缺少聚焦意识，把与问题无关的技术组件堆进答案，反而暴露准备方向偏差。\n4. 全流程：第 2 轮未作答，三分钟左右的长时间停顿后无输出，临场应对与时间管理需要改善。\n\n## 下一步准备建议\n\n1. 练习方向：把简历上每一条量化成果（800ms→210ms、命中率 92%、日 30 万条事件）都还原成一段可讲两分钟的完整叙述，重点练「问题—定位—方案—验证」四步。\n2. 补知识点：系统梳理 MySQL 慢查询定位链条，包括慢查询日志、EXPLAIN 各列含义、最左前缀与联合索引字段顺序、回表与覆盖索引、索引对写入的影响。\n3. 表达结构：先复述并确认问题焦点，再按「结论—依据—验证」作答；若一时无思路，可先说明定位思路再补细节，避免用不相关的技术栈填充回答。",
+  "status" : "FINISHED",
+  "events" : [ {
+    "name" : "interview.started",
+    "payloadJson" : "{\"max_round\":3,\"replay_mode\":false,\"level\":\"高度匹配\",\"overall_score\":88.1}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":1}",
+    "offsetMs" : 56
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":4087}",
+    "offsetMs" : 4142
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":9094}",
+    "offsetMs" : 9149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":14101}",
+    "offsetMs" : 14156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":19094}",
+    "offsetMs" : 19149
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":1,\"question\":\"你在实习中负责订单查询慢SQL优化，为订单明细表补充联合索引，接口响应时间从800ms降至210ms。请具体说明你如何定位该慢SQL、原索引存在什么问题、联合索引字段顺序的设计依据，以及如何验证优化效果并避免影响其他查询？\",\"focus_dimension\":\"项目与成果相关度\",\"evidence_ref\":\"E6\",\"max_round\":3}",
+    "offsetMs" : 22679
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"latency_ms\":22613,\"token_total\":4154,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 22691
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":1,\"answer_length\":102}",
+    "offsetMs" : 670888
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":2}",
+    "offsetMs" : 671010
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":591}",
+    "offsetMs" : 671601
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":5595}",
+    "offsetMs" : 676605
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":10594}",
+    "offsetMs" : 681604
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":15588}",
+    "offsetMs" : 686598
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":20586}",
+    "offsetMs" : 691596
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":25586}",
+    "offsetMs" : 696596
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":30585}",
+    "offsetMs" : 701595
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":35599}",
+    "offsetMs" : 706609
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":40592}",
+    "offsetMs" : 711602
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":45589}",
+    "offsetMs" : 716600
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":50596}",
+    "offsetMs" : 721606
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":1,\"score\":12.0,\"strengths\":[\"体现对微服务注册发现、网关、配置中心、熔断降级等概念有一定了解\"],\"improvements\":[\"完全偏离慢 SQL 优化问题，未涉及 EXPLAIN、索引与响应时间验证\",\"未结合订单中心接口开发的查询场景作答\",\"应聚焦问题重点，避免罗列无关技术组件\"]}",
+    "offsetMs" : 722568
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":2,\"question\":\"JD 要求了解 Spring Cloud 微服务组件，但你的简历未体现。请说明 Spring Cloud 在服务注册与发现、配置管理、网关方面的核心组件与作用，并简述其在订单中心接口场景中的价值。\",\"focus_dimension\":\"硬性技能匹配\",\"evidence_ref\":\"E1\",\"max_round\":3}",
+    "offsetMs" : 722578
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"latency_ms\":51570,\"token_total\":6608,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 722589
+  }, {
+    "name" : "interview.finished",
+    "payloadJson" : "{\"status\":\"FINISHED\",\"round_no\":2,\"avg_score\":12.0,\"score\":{\"avg_score\":12.0,\"answered_rounds\":1,\"planned_rounds\":3,\"level\":\"WEAK\",\"per_round\":[{\"round_no\":1,\"score\":12.0,\"focus_dimension\":\"项目与成果相关度\"}],\"dimensions\":[{\"name\":\"项目与成果相关度\",\"score\":12.0,\"round_no\":1}],\"strengths\":[{\"round_no\":1,\"text\":\"体现对微服务注册发现、网关、配置中心、熔断降级等概念有一定了解\"}],\"improvements\":[{\"round_no\":1,\"text\":\"完全偏离慢 SQL 优化问题，未涉及 EXPLAIN、索引与响应时间验证\"},{\"round_no\":1,\"text\":\"未结合订单中心接口开发的查询场景作答\"},{\"round_no\":1,\"text\":\"应聚焦问题重点，避免罗列无关技术组件\"}],\"note\":\"本场共评定 1 轮，平均分 12.0，档位 WEAK；分数仅用于练习自评，不代表真实面试结论。\"},\"summary_md\":\"## 总体评价\\n\\n本场模拟面试仅完成 1 轮有效作答，平均分 12.0，档位 WEAK。简历中订单中心慢 SQL 优化是与 JD 高度相关的亮点，但候选人答以 Nacos、Gateway、OpenFeign、Sentinel 等微服务组件，与提问完全错位，最突出的短板是答非所问、未按题意组织内容。\\n\\n## 分维度表现\\n\\n- 项目与成果相关度（第 1 轮，12.0 分）：回答体现了对注册发现、网关、配置中心、熔断降级等概念的基本了解，但未回应所问的慢 SQL 优化本身，该维度得分偏低。\\n\\n## 薄弱环节\\n\\n1. 第 1 轮：完全偏离慢 SQL 优化问题，未涉及 EXPLAIN 执行计划、索引设计与响应时间验证，而这些正是简历中自己写下的成果，却无法展开。\\n2. 第 1 轮：未结合订单中心接口的查询场景作答，缺乏业务上下文，回答停留在组件名词罗列。\\n3. 第 1 轮：缺少聚焦意识，把与问题无关的技术组件堆进答案，反而暴露准备方向偏差。\\n4. 全流程：第 2 轮未作答，三分钟左右的长时间停顿后无输出，临场应对与时间管理需要改善。\\n\\n## 下一步准备建议\\n\\n1. 练习方向：把简历上每一条量化成果（800ms→210ms、命中率 92%、日 30 万条事件）都还原成一段可讲两分钟的完整叙述，重点练「问题—定位—方案—验证」四步。\\n2. 补知识点：系统梳理 MySQL 慢查询定位链条，包括慢查询日志、EXPLAIN 各列含义、最左前缀与联合索引字段顺序、回表与覆盖索引、索引对写入的影响。\\n3. 表达结构：先复述并确认问题焦点，再按「结论—依据—验证」作答；若一时无思路，可先说明定位思路再补细节，避免用不相关的技术栈填充回答。\",\"finished_at\":\"2026-09-25T15:56:38.320\"}",
+    "offsetMs" : 763110
+  } ]
+}

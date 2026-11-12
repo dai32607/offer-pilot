@@ -1,0 +1,26 @@
+{
+  "case_id": "C08",
+  "synthetic": true,
+  "sample_type": "合成样本（人物、公司、联系方式均为虚构占位，与任何真实自然人或企业无关）",
+  "job_family": "Java 后端开发（校招）",
+  "tier": "较匹配",
+  "human_score": 4,
+  "human_dimensions": {
+    "硬性技能匹配": 4,
+    "经验年限与职级": 4,
+    "项目与成果相关度": 3,
+    "教育与证书": 4,
+    "加分项与潜力": 4
+  },
+  "score_rule": "维度分按 硬性技能30/经验年限20/项目成果25/教育证书10/加分项15 加权后四舍五入为 1-5 整数",
+  "weighted_raw": 3.75,
+  "label_method": "规则化独立评审流程（确定性打分规则推导，标注阶段未运行也未查看任何模型输出）",
+  "label_date": "2026-09-18",
+  "note": "技能面覆盖 JD 硬性要求但缺乏实习与真实项目；课程设计规模偏小，潜力尚可。",
+  "human_review": {
+    "status": "PENDING",
+    "reviewer": null,
+    "reviewed_at": null,
+    "review_note": null
+  }
+}

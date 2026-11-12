@@ -1,0 +1,22 @@
+{
+  "dataset_name": "OfferPilot S4 评测集（合成样本）",
+  "built_at": "2026-09-18",
+  "total_cases": 25,
+  "synthetic": true,
+  "disclaimer": "全部样本为合成数据，仅用于系统评测；不得用于任何真实招聘或人事决策。",
+  "tier_distribution": {
+    "高度匹配(模型分≥80)": 6,
+    "较匹配(60-79)": 9,
+    "一般(40-59)": 7,
+    "不匹配(<40)": 3
+  },
+  "human_score_distribution": {
+    "1": 2,
+    "2": 1,
+    "3": 7,
+    "4": 9,
+    "5": 6
+  },
+  "file_layout": "dataset/<case_id>/{jd.txt, resume.txt, label.json}",
+  "note_on_resume_format": "合成样本以纯文本 resume.txt 提供，与后端 /api/match 的文本入参（jdText/resumeText）对齐；离线真实样本可另存为 resume.pdf。"
+}

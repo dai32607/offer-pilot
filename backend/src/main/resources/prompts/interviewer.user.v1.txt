@@ -1,0 +1,46 @@
+【输入】
+<jd_parsed>{{jd_parsed}}</jd_parsed>
+<resume_parsed>{{resume_parsed}}</resume_parsed>
+<match_eval>{{match_eval}}</match_eval>
+<history>{{history}}</history>
+<round>{{round}}</round>
+<focus_dimension>{{focus_dimension}}</focus_dimension>
+
+【任务】
+1. 若 history 非空，先对上一轮回答给出 evaluation（score 0-100、strengths、improvements）。
+2. 生成本轮问题：优先考察 match_eval 中 severity 为 HIGH 的缺口维度，但不重复已考察过的 focus_dimension。
+3. 问题必须引用简历或 JD 的具体内容，本问题只考察 1 个主问题（不要一次问多个问题）。
+4. 给出 answer_points（参考要点，用于后续评分）与 followup_hint（下一轮追问方向）。
+
+【本轮约束（强制）】
+1. 本轮 round = {{round}}，输出的 round 字段必须等于该值。
+2. 上一轮已考察维度（本轮严禁重复，无上一轮时为空）= {{last_dimension}}；
+   历史已考察维度（本轮尽量避开）= {{forbidden_dimensions}}
+3. focus_dimension 必须从 match_eval 的维度名中选取（无法判断时用「项目与成果相关度」）。
+4. evidence_ref 必须从下方候选 evidence_id 中选取一个；候选为空时输出 null：
+   候选 evidence_id = {{evidence_ids}}
+5. 若 round = 1，evaluation 必须为 null；round > 1 时 evaluation 不得为 null。
+6. question ≤ 200 字，answer_points ≤ 5 条（每条 ≤ 40 字），followup_hint ≤ 60 字。
+
+【模式标记（优先级最高）】
+{{final_round_note}}
+
+【输出 JSON Schema】
+{
+  "type": "object",
+  "required": ["round","question","focus_dimension","evidence_ref","answer_points","followup_hint","evaluation"],
+  "properties": {
+    "round": {"type": "integer"},
+    "question": {"type": "string"},
+    "focus_dimension": {"type": "string"},
+    "evidence_ref": {"type": "string"},
+    "answer_points": {"type": "array", "items": {"type": "string"}},
+    "followup_hint": {"type": "string"},
+    "evaluation": {"type": ["object","null"],
+      "properties": {"score": {"type": "number"},
+                     "strengths": {"type": "array", "items": {"type": "string"}},
+                     "improvements": {"type": "array", "items": {"type": "string"}}}}
+  }
+}
+
+只输出 JSON 本身，禁止任何解释文字与 Markdown 代码块标记。

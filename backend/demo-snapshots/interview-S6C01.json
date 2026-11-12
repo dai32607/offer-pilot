@@ -1,0 +1,520 @@
+{
+  "schema" : "offerpilot.interview.snapshot/v1",
+  "caseId" : "S6C01",
+  "taskNo" : "50ce4d2c4e9e47b3a9a99df4ae9540a1",
+  "recordedAt" : "2026-09-23 14:52:06",
+  "maxRound" : 3,
+  "roundCount" : 3,
+  "transcript" : [ {
+    "round" : 1,
+    "question" : "你的简历写“系统学习过 C 语言与 Java”，JD 要求熟悉 Java 或 Python。请以 Java 为例，讲一个你完成的课程实践：它实现什么功能，你用到哪些面向对象或数据结构知识？请说明具体实现。",
+    "focusDimension" : "硬性技能匹配",
+    "evidenceRef" : "E2",
+    "answerPoints" : [ "能说出一个具体课程实践或小型程序的功能", "说明使用的类、对象、继承等面向对象特性", "提及数组、链表、栈等数据结构的具体运用", "描述输入输出、核心方法或流程", "体现Java基础能支撑简单后端逻辑" ],
+    "followupHint" : "结合其回答，追问后端框架与数据库基础，判断能否开发简单查询接口。",
+    "answer" : "我完成过一门《Java 面向对象程序设计》课程的大作业：图书借阅管理系统。系统实现了图书新增、借阅、归还、逾期提醒与统计报表功能。我使用了面向对象设计：抽象出 Book、Reader、Loan 三个核心类，Loan 关联 Book 与 Reader，体现组合关系；借阅状态用枚举 LoanStatus 管理。数据结构方面，我使用 HashMap<ISBN, Book> 实现 O(1) 的图书检索，用 LinkedList 保存借阅流水以便按时间顺序遍历，并自实现了一个简单的二叉排序树用于按书名排序展示。通过这个项目我掌握了封装、继承、多态的实际运用，以及常见集合类的选型依据。",
+    "score" : 78.0,
+    "strengths" : [ "具体描述了图书借阅管理系统功能与核心类设计", "正确使用HashMap、LinkedList等结构并说明选型理由", "提到组合关系与枚举状态，体现一定建模能力" ],
+    "improvements" : [ "未涉及数据库或持久化，与JD后端要求仍有差距", "缺少接口入口、异常处理与测试验证说明", "可进一步关联Web/API场景体现工程意识" ],
+    "answeredAt" : "2026-09-23T14:44:32.329",
+    "latencyMs" : 63415
+  }, {
+    "round" : 2,
+    "question" : "你的简历写“暂无项目、暂无比赛经历”。请设计一个你能够独立完成的最小项目来证明动手能力：说明项目目标、输入输出、模块划分和验证标准。不需要写完整代码。",
+    "focusDimension" : "项目与成果相关度",
+    "evidenceRef" : "E4",
+    "answerPoints" : [ "能提出具体的小项目目标，而非泛泛而谈", "输入输出设计清晰，并考虑边界或异常", "模块划分合理，体现基本工程思维", "给出最小可运行版本及验证标准", "展示将课程知识转化为可演示成果的能力" ],
+    "followupHint" : "可追问其设计的小项目如何用Spring Boot/MySQL实现接口与持久化，考察后端基础。",
+    "answer" : "我计划独立完成一个「命令行待办任务管理器 CLI Todo Manager」项目。项目目标：在不依赖图形界面的前提下，实现任务的增删改查、优先级排序、截止日期提醒与数据持久化。输入：命令参数（如 add/complete/list/stat），输出：结构化控制台结果与 JSON 数据文件。模块划分：① CLI 解析模块（参数校验与命令分发）；② 任务模型模块（Task 实体、优先级枚举、状态机）；③ 存储模块（JSON 文件读写、内存索引）；④ 统计模块（完成率、逾期率）。验证标准：编写 15+ 个单元测试覆盖核心逻辑；用 100 条任务数据验证增删改查与排序正确性；模拟断电场景验证数据不丢失。通过该项目体现我 Java 基础、工程规范与自驱能力。",
+    "score" : 76.0,
+    "strengths" : [ "项目目标清晰，模块划分合理，体现工程思维", "输入输出与验证标准具体，具备可执行性", "考虑了持久化和异常场景，有一定健壮性" ],
+    "improvements" : [ "实现方式为命令行工具，与JD后端API场景差距较大", "未引入Spring Boot/MySQL或大模型API等岗位所需技术", "可进一步说明排序与提醒的具体算法或数据结构" ],
+    "answeredAt" : "2026-09-23T14:48:45.054",
+    "latencyMs" : 160020
+  }, {
+    "round" : 3,
+    "question" : "你的简历目前缺少大模型相关项目。JD职责要求基于大模型API实现智能问答。请结合你的学习方式，设计一个可在2周内完成的最小智能问答原型验证计划，并说明如何评估效果。",
+    "focusDimension" : "加分项与潜力",
+    "evidenceRef" : "E3",
+    "answerPoints" : [ "说明学习资料：官方文档、课程或API文档", "选择简单知识库并设计问答测试数据", "调用大模型API实现最小问答流程", "设定评估指标：准确率、响应时间等", "记录问题并迭代提示词或知识库" ],
+    "followupHint" : "追问其原型的后端接口与数据存储设计，考察Spring Boot/MySQL基础。",
+    "answer" : "我计划用 2 周完成一个最小智能问答原型「FAQ-Bot」。第 1-2 天：调研并选定大模型 API（DeepSeek 开放平台），申请 Key、跑通 Hello 级调用，确认流式与非流式接口；第 3-5 天：搭建最小后端（Spring Boot）封装 /api/chat 接口，实现上下文拼接（系统提示词 + 用户问题 + 可选检索片段），前端做一个极简对话框页面；第 6-9 天：加入检索增强——将 20 条产品 FAQ 写入本地 JSON/向量库，按关键词或嵌入相似度召回 top-3 片段拼入提示词；第 10-12 天：补充错误处理（超时重试、Token 超限截断、敏感词过滤）与日志；第 13-14 天：整理测试数据并验收。效果评估：① 准确率——准备 30 个标准问答对，计算回答正确率（≥80% 达标）；② 召回质量——对比有无检索增强时的回答差异；③ 时延——测量首 token 与完整响应耗时（P95 < 3s）；④ 成本——统计每千次调用 Token 消耗；⑤ 边界——测试超长问题、重复问题、无答案问题的兜底话术。",
+    "score" : 78.0,
+    "strengths" : [ "计划具体到天，覆盖API调用、Spring Boot与RAG流程", "评估指标全面，包含准确率、时延、成本与边界场景", "主动引入检索增强与错误处理，体现工程意识" ],
+    "improvements" : [ "仅为计划未实际落地，无法验证真实动手能力", "对个人学习方法与资料调研路径说明不足", "缺少数据标注与评测脚本的细化设计" ],
+    "answeredAt" : "2026-09-23T14:51:36.270",
+    "latencyMs" : 142167
+  } ],
+  "score" : {
+    "avg_score" : 77.3,
+    "answered_rounds" : 3,
+    "planned_rounds" : 3,
+    "level" : "OK",
+    "per_round" : [ {
+      "round_no" : 1,
+      "score" : 78.0,
+      "focus_dimension" : "硬性技能匹配"
+    }, {
+      "round_no" : 2,
+      "score" : 76.0,
+      "focus_dimension" : "项目与成果相关度"
+    }, {
+      "round_no" : 3,
+      "score" : 78.0,
+      "focus_dimension" : "加分项与潜力"
+    } ],
+    "dimensions" : [ {
+      "name" : "硬性技能匹配",
+      "score" : 78.0,
+      "round_no" : 1
+    }, {
+      "name" : "项目与成果相关度",
+      "score" : 76.0,
+      "round_no" : 2
+    }, {
+      "name" : "加分项与潜力",
+      "score" : 78.0,
+      "round_no" : 3
+    } ],
+    "strengths" : [ {
+      "round_no" : 1,
+      "text" : "具体描述了图书借阅管理系统功能与核心类设计"
+    }, {
+      "round_no" : 1,
+      "text" : "正确使用HashMap、LinkedList等结构并说明选型理由"
+    }, {
+      "round_no" : 1,
+      "text" : "提到组合关系与枚举状态，体现一定建模能力"
+    }, {
+      "round_no" : 2,
+      "text" : "项目目标清晰，模块划分合理，体现工程思维"
+    }, {
+      "round_no" : 2,
+      "text" : "输入输出与验证标准具体，具备可执行性"
+    }, {
+      "round_no" : 2,
+      "text" : "考虑了持久化和异常场景，有一定健壮性"
+    }, {
+      "round_no" : 3,
+      "text" : "计划具体到天，覆盖API调用、Spring Boot与RAG流程"
+    }, {
+      "round_no" : 3,
+      "text" : "评估指标全面，包含准确率、时延、成本与边界场景"
+    }, {
+      "round_no" : 3,
+      "text" : "主动引入检索增强与错误处理，体现工程意识"
+    } ],
+    "improvements" : [ {
+      "round_no" : 1,
+      "text" : "未涉及数据库或持久化，与JD后端要求仍有差距"
+    }, {
+      "round_no" : 1,
+      "text" : "缺少接口入口、异常处理与测试验证说明"
+    }, {
+      "round_no" : 1,
+      "text" : "可进一步关联Web/API场景体现工程意识"
+    }, {
+      "round_no" : 2,
+      "text" : "实现方式为命令行工具，与JD后端API场景差距较大"
+    }, {
+      "round_no" : 2,
+      "text" : "未引入Spring Boot/MySQL或大模型API等岗位所需技术"
+    }, {
+      "round_no" : 2,
+      "text" : "可进一步说明排序与提醒的具体算法或数据结构"
+    }, {
+      "round_no" : 3,
+      "text" : "仅为计划未实际落地，无法验证真实动手能力"
+    }, {
+      "round_no" : 3,
+      "text" : "对个人学习方法与资料调研路径说明不足"
+    }, {
+      "round_no" : 3,
+      "text" : "缺少数据标注与评测脚本的细化设计"
+    } ],
+    "note" : "本场共评定 3 轮，平均分 77.3，档位 OK；分数仅用于练习自评，不代表真实面试结论。"
+  },
+  "summaryMd" : "## 总体评价\n\n候选人三题均分 77.3，表达条理清晰，能用具体类设计、模块划分和按天的计划支撑回答，学习意愿与工程意识可圈可点。但相对该 JD，最突出的短板是**缺少真实落地的后端与大模型实践**：三轮回答中数据库持久化、接口实现、RAG 落地均停留在课程作业或书面计划层面，缺少可验证的成果。\n\n## 分维度表现\n\n- **硬性技能匹配（第 1 轮，78 分）**：图书借阅管理系统讲清了类设计、集合选型与排序结构，Java 基础达标，但未触及数据库与接口层，距 JD 的后端要求仍有缺口。\n- **项目与成果相关度（第 2 轮，76 分）**：CLI 待办工具目标、模块与验证标准具体，工程思路完整；但形态是命令行程序，与岗位所需的 API 场景偏差最大。\n- **加分项与潜力（第 3 轮，78 分）**：2 周 FAQ-Bot 计划覆盖 API 调用、Spring Boot、检索增强与多维度评估指标，规划能力好，但仍属计划，不能证明动手能力。\n\n## 薄弱环节\n\n1. **后端技术栈尚未落地（第 1、2 轮）**：两轮都未涉及数据库、持久化与接口入口，第 2 轮明确未引入 Spring Boot/MySQL，需把已有设计迁移到 Web/API 场景。\n2. **成果停留在纸面（第 2、3 轮）**：CLI 项目与 FAQ-Bot 均为设想，没有可演示产物，缺少测试与数据标注、评测脚本的细化设计。\n3. **缺少大模型相关的实操证据（第 2、3 轮）**：未出现实际调用大模型 API 或检索增强的记录，仅以计划形式描述。\n4. **工程细节说明不足（第 1、3 轮）**：第 1 轮缺异常处理与测试验证，第 3 轮未说明资料调研路径。\n\n## 下一步准备建议\n\n1. **练习方向**：把第 2 轮的待办工具或第 3 轮的 FAQ-Bot 真正做出最小可运行版本，用 Spring Boot 暴露接口、MySQL 落库，形成可演示、可讲结果的产出。\n2. **补知识点**：Spring Boot 接口开发、MySQL 基础操作、大模型 API 调用与检索增强流程，以及评测脚本与标注数据的组织方式。\n3. **表达结构**：讲项目时按「目标—输入输出—模块—技术选型—验证结果」推进，并主动补充异常处理与测试环节，避免只讲设计不讲结果。",
+  "status" : "FINISHED",
+  "events" : [ {
+    "name" : "interview.started",
+    "payloadJson" : "{\"max_round\":3,\"replay_mode\":false,\"level\":\"一般\",\"overall_score\":27.4}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":1}",
+    "offsetMs" : 9
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":4146}",
+    "offsetMs" : 4153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":9149}",
+    "offsetMs" : 9156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":14155}",
+    "offsetMs" : 14162
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":19142}",
+    "offsetMs" : 19149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":24146}",
+    "offsetMs" : 24153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":29152}",
+    "offsetMs" : 29159
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":34149}",
+    "offsetMs" : 34156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":39143}",
+    "offsetMs" : 39150
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":44149}",
+    "offsetMs" : 44156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":49152}",
+    "offsetMs" : 49159
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":54142}",
+    "offsetMs" : 54149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":0,\"elapsed_ms\":59144}",
+    "offsetMs" : 59151
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":1,\"question\":\"你的简历写“系统学习过 C 语言与 Java”，JD 要求熟悉 Java 或 Python。请以 Java 为例，讲一个你完成的课程实践：它实现什么功能，你用到哪些面向对象或数据结构知识？请说明具体实现。\",\"focus_dimension\":\"硬性技能匹配\",\"evidence_ref\":\"E2\",\"max_round\":3}",
+    "offsetMs" : 63424
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"latency_ms\":63415,\"token_total\":5790,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 63424
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":1,\"answer_length\":290}",
+    "offsetMs" : 92089
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":2}",
+    "offsetMs" : 92091
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":2071}",
+    "offsetMs" : 94162
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":7071}",
+    "offsetMs" : 99162
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":12061}",
+    "offsetMs" : 104152
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":17071}",
+    "offsetMs" : 109162
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":22058}",
+    "offsetMs" : 114149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":27059}",
+    "offsetMs" : 119150
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":32059}",
+    "offsetMs" : 124150
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":37070}",
+    "offsetMs" : 129161
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":42069}",
+    "offsetMs" : 134160
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":47070}",
+    "offsetMs" : 139161
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":52060}",
+    "offsetMs" : 144151
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":57060}",
+    "offsetMs" : 149151
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":62064}",
+    "offsetMs" : 154155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":67057}",
+    "offsetMs" : 159148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":72068}",
+    "offsetMs" : 164159
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":77062}",
+    "offsetMs" : 169153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":82067}",
+    "offsetMs" : 174158
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":87057}",
+    "offsetMs" : 179148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":92065}",
+    "offsetMs" : 184156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":97064}",
+    "offsetMs" : 189155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":102058}",
+    "offsetMs" : 194149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":107064}",
+    "offsetMs" : 199155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":112065}",
+    "offsetMs" : 204156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":117058}",
+    "offsetMs" : 209149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":122058}",
+    "offsetMs" : 214149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":127057}",
+    "offsetMs" : 219148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":132057}",
+    "offsetMs" : 224148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":137070}",
+    "offsetMs" : 229161
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":142057}",
+    "offsetMs" : 234148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":147058}",
+    "offsetMs" : 239149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":152065}",
+    "offsetMs" : 244156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":1,\"elapsed_ms\":157057}",
+    "offsetMs" : 249148
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":1,\"score\":78.0,\"strengths\":[\"具体描述了图书借阅管理系统功能与核心类设计\",\"正确使用HashMap、LinkedList等结构并说明选型理由\",\"提到组合关系与枚举状态，体现一定建模能力\"],\"improvements\":[\"未涉及数据库或持久化，与JD后端要求仍有差距\",\"缺少接口入口、异常处理与测试验证说明\",\"可进一步关联Web/API场景体现工程意识\"]}",
+    "offsetMs" : 252111
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":2,\"question\":\"你的简历写“暂无项目、暂无比赛经历”。请设计一个你能够独立完成的最小项目来证明动手能力：说明项目目标、输入输出、模块划分和验证标准。不需要写完整代码。\",\"focus_dimension\":\"项目与成果相关度\",\"evidence_ref\":\"E4\",\"max_round\":3}",
+    "offsetMs" : 252111
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"latency_ms\":160020,\"token_total\":10562,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 252111
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":2,\"answer_length\":328}",
+    "offsetMs" : 344814
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"prompt_version\":\"interviewer.user.v1\",\"round_no\":3}",
+    "offsetMs" : 344815
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":4339}",
+    "offsetMs" : 349154
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":9344}",
+    "offsetMs" : 354159
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":14342}",
+    "offsetMs" : 359157
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":19342}",
+    "offsetMs" : 364157
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":24341}",
+    "offsetMs" : 369156
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":29342}",
+    "offsetMs" : 374157
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":34340}",
+    "offsetMs" : 379155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":39339}",
+    "offsetMs" : 384154
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":44339}",
+    "offsetMs" : 389154
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":49333}",
+    "offsetMs" : 394148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":54333}",
+    "offsetMs" : 399148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":59347}",
+    "offsetMs" : 404162
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":64336}",
+    "offsetMs" : 409151
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":69340}",
+    "offsetMs" : 414155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":74334}",
+    "offsetMs" : 419149
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":79345}",
+    "offsetMs" : 424160
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":84333}",
+    "offsetMs" : 429148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":89338}",
+    "offsetMs" : 434153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":94343}",
+    "offsetMs" : 439158
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":99336}",
+    "offsetMs" : 444151
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":104338}",
+    "offsetMs" : 449153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":109333}",
+    "offsetMs" : 454148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":114348}",
+    "offsetMs" : 459163
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":119337}",
+    "offsetMs" : 464152
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":124338}",
+    "offsetMs" : 469153
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":129333}",
+    "offsetMs" : 474148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":134333}",
+    "offsetMs" : 479148
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":2,\"elapsed_ms\":139347}",
+    "offsetMs" : 484162
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":2,\"score\":76.0,\"strengths\":[\"项目目标清晰，模块划分合理，体现工程思维\",\"输入输出与验证标准具体，具备可执行性\",\"考虑了持久化和异常场景，有一定健壮性\"],\"improvements\":[\"实现方式为命令行工具，与JD后端API场景差距较大\",\"未引入Spring Boot/MySQL或大模型API等岗位所需技术\",\"可进一步说明排序与提醒的具体算法或数据结构\"]}",
+    "offsetMs" : 486983
+  }, {
+    "name" : "interview.question",
+    "payloadJson" : "{\"round_no\":3,\"question\":\"你的简历目前缺少大模型相关项目。JD职责要求基于大模型API实现智能问答。请结合你的学习方式，设计一个可在2周内完成的最小智能问答原型验证计划，并说明如何评估效果。\",\"focus_dimension\":\"加分项与潜力\",\"evidence_ref\":\"E3\",\"max_round\":3}",
+    "offsetMs" : 486983
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"latency_ms\":142167,\"token_total\":10122,\"retry_count\":0,\"status\":\"SUCCEEDED\"}",
+    "offsetMs" : 486983
+  }, {
+    "name" : "interview.answer",
+    "payloadJson" : "{\"round_no\":3,\"answer_length\":468}",
+    "offsetMs" : 516030
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"model\":\"deepseek-v4-pro\",\"round_no\":4,\"mode\":\"FINALIZE\"}",
+    "offsetMs" : 516030
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"elapsed_ms\":3128}",
+    "offsetMs" : 519158
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"elapsed_ms\":8125}",
+    "offsetMs" : 524155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"elapsed_ms\":13121}",
+    "offsetMs" : 529151
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"elapsed_ms\":18125}",
+    "offsetMs" : 534155
+  }, {
+    "name" : "interview.progress",
+    "payloadJson" : "{\"agent_name\":\"INTERVIEWER\",\"round_no\":3,\"elapsed_ms\":23129}",
+    "offsetMs" : 539159
+  }, {
+    "name" : "interview.evaluation",
+    "payloadJson" : "{\"round_no\":3,\"score\":78.0,\"strengths\":[\"计划具体到天，覆盖API调用、Spring Boot与RAG流程\",\"评估指标全面，包含准确率、时延、成本与边界场景\",\"主动引入检索增强与错误处理，体现工程意识\"],\"improvements\":[\"仅为计划未实际落地，无法验证真实动手能力\",\"对个人学习方法与资料调研路径说明不足\",\"缺少数据标注与评测脚本的细化设计\"]}",
+    "offsetMs" : 542692
+  }, {
+    "name" : "interview.finished",
+    "payloadJson" : "{\"status\":\"FINISHED\",\"round_no\":3,\"avg_score\":77.3,\"score\":{\"avg_score\":77.3,\"answered_rounds\":3,\"planned_rounds\":3,\"level\":\"OK\",\"per_round\":[{\"round_no\":1,\"score\":78.0,\"focus_dimension\":\"硬性技能匹配\"},{\"round_no\":2,\"score\":76.0,\"focus_dimension\":\"项目与成果相关度\"},{\"round_no\":3,\"score\":78.0,\"focus_dimension\":\"加分项与潜力\"}],\"dimensions\":[{\"name\":\"硬性技能匹配\",\"score\":78.0,\"round_no\":1},{\"name\":\"项目与成果相关度\",\"score\":76.0,\"round_no\":2},{\"name\":\"加分项与潜力\",\"score\":78.0,\"round_no\":3}],\"strengths\":[{\"round_no\":1,\"text\":\"具体描述了图书借阅管理系统功能与核心类设计\"},{\"round_no\":1,\"text\":\"正确使用HashMap、LinkedList等结构并说明选型理由\"},{\"round_no\":1,\"text\":\"提到组合关系与枚举状态，体现一定建模能力\"},{\"round_no\":2,\"text\":\"项目目标清晰，模块划分合理，体现工程思维\"},{\"round_no\":2,\"text\":\"输入输出与验证标准具体，具备可执行性\"},{\"round_no\":2,\"text\":\"考虑了持久化和异常场景，有一定健壮性\"},{\"round_no\":3,\"text\":\"计划具体到天，覆盖API调用、Spring Boot与RAG流程\"},{\"round_no\":3,\"text\":\"评估指标全面，包含准确率、时延、成本与边界场景\"},{\"round_no\":3,\"text\":\"主动引入检索增强与错误处理，体现工程意识\"}],\"improvements\":[{\"round_no\":1,\"text\":\"未涉及数据库或持久化，与JD后端要求仍有差距\"},{\"round_no\":1,\"text\":\"缺少接口入口、异常处理与测试验证说明\"},{\"round_no\":1,\"text\":\"可进一步关联Web/API场景体现工程意识\"},{\"round_no\":2,\"text\":\"实现方式为命令行工具，与JD后端API场景差距较大\"},{\"round_no\":2,\"text\":\"未引入Spring Boot/MySQL或大模型API等岗位所需技术\"},{\"round_no\":2,\"text\":\"可进一步说明排序与提醒的具体算法或数据结构\"},{\"round_no\":3,\"text\":\"仅为计划未实际落地，无法验证真实动手能力\"},{\"round_no\":3,\"text\":\"对个人学习方法与资料调研路径说明不足\"},{\"round_no\":3,\"text\":\"缺少数据标注与评测脚本的细化设计\"}],\"note\":\"本场共评定 3 轮，平均分 77.3，档位 OK；分数仅用于练习自评，不代表真实面试结论。\"},\"summary_md\":\"## 总体评价\\n\\n候选人三题均分 77.3，表达条理清晰，能用具体类设计、模块划分和按天的计划支撑回答，学习意愿与工程意识可圈可点。但相对该 JD，最突出的短板是**缺少真实落地的后端与大模型实践**：三轮回答中数据库持久化、接口实现、RAG 落地均停留在课程作业或书面计划层面，缺少可验证的成果。\\n\\n## 分维度表现\\n\\n- **硬性技能匹配（第 1 轮，78 分）**：图书借阅管理系统讲清了类设计、集合选型与排序结构，Java 基础达标，但未触及数据库与接口层，距 JD 的后端要求仍有缺口。\\n- **项目与成果相关度（第 2 轮，76 分）**：CLI 待办工具目标、模块与验证标准具体，工程思路完整；但形态是命令行程序，与岗位所需的 API 场景偏差最大。\\n- **加分项与潜力（第 3 轮，78 分）**：2 周 FAQ-Bot 计划覆盖 API 调用、Spring Boot、检索增强与多维度评估指标，规划能力好，但仍属计划，不能证明动手能力。\\n\\n## 薄弱环节\\n\\n1. **后端技术栈尚未落地（第 1、2 轮）**：两轮都未涉及数据库、持久化与接口入口，第 2 轮明确未引入 Spring Boot/MySQL，需把已有设计迁移到 Web/API 场景。\\n2. **成果停留在纸面（第 2、3 轮）**：CLI 项目与 FAQ-Bot 均为设想，没有可演示产物，缺少测试与数据标注、评测脚本的细化设计。\\n3. **缺少大模型相关的实操证据（第 2、3 轮）**：未出现实际调用大模型 API 或检索增强的记录，仅以计划形式描述。\\n4. **工程细节说明不足（第 1、3 轮）**：第 1 轮缺异常处理与测试验证，第 3 轮未说明资料调研路径。\\n\\n## 下一步准备建议\\n\\n1. **练习方向**：把第 2 轮的待办工具或第 3 轮的 FAQ-Bot 真正做出最小可运行版本，用 Spring Boot 暴露接口、MySQL 落库，形成可演示、可讲结果的产出。\\n2. **补知识点**：Spring Boot 接口开发、MySQL 基础操作、大模型 API 调用与检索增强流程，以及评测脚本与标注数据的组织方式。\\n3. **表达结构**：讲项目时按「目标—输入输出—模块—技术选型—验证结果」推进，并主动补充异常处理与测试环节，避免只讲设计不讲结果。\",\"finished_at\":\"2026-09-23T14:52:06.784\"}",
+    "offsetMs" : 546544
+  } ]
+}

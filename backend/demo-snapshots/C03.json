@@ -1,0 +1,388 @@
+{
+  "caseId" : "C03",
+  "jdDigest" : "088091a6a26839ea5da009ee810c8bc89f439a1a85d8d57dd16bffa34294469f",
+  "resumeDigest" : "9acea1e862f73f96aa7f06df20fd33f9c833df122f78415d86f418710654a660",
+  "createdAt" : "2026-09-21 15:20:48",
+  "matchModel" : "deepseek-v4-pro",
+  "durationMs" : 179078,
+  "tokenTotal" : 17313,
+  "response" : {
+    "report" : {
+      "overallScore" : 83.0,
+      "level" : "高度匹配",
+      "dimensions" : [ {
+        "name" : "硬性技能匹配",
+        "weight" : 30.0,
+        "score" : 27.0,
+        "maxScore" : 30.0,
+        "conclusion" : "SQL、Python、Tableau、报告能力均有覆盖，匹配度高",
+        "evidence" : [ {
+          "evidenceId" : "E1",
+          "source" : "resume",
+          "quote" : "SQL、Python（pandas/numpy）"
+        }, {
+          "evidenceId" : "E2",
+          "source" : "resume",
+          "quote" : "使用 SQL 完成订单、商品、用户三表关联分析"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "经验年限与职级",
+        "weight" : 20.0,
+        "score" : 10.0,
+        "maxScore" : 20.0,
+        "conclusion" : "JD未明确年限，本科在读，实习仅6个月",
+        "evidence" : [ {
+          "evidenceId" : "E3",
+          "source" : "resume",
+          "quote" : "2025.07-2025.12"
+        }, {
+          "evidenceId" : "E4",
+          "source" : "resume",
+          "quote" : "本科在读（2026 届）"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "项目与成果相关度",
+        "weight" : 25.0,
+        "score" : 22.5,
+        "maxScore" : 25.0,
+        "conclusion" : "经营看板、A/B实验、报告与JD高度相关",
+        "evidence" : [ {
+          "evidenceId" : "E5",
+          "source" : "resume",
+          "quote" : "基于 Tableau 搭建经营看板"
+        }, {
+          "evidenceId" : "E6",
+          "source" : "resume",
+          "quote" : "参与 2 次 A/B 实验设计"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "教育与证书",
+        "weight" : 10.0,
+        "score" : 7.0,
+        "maxScore" : 10.0,
+        "conclusion" : "统计学本科在读，专业匹配，证书辅助",
+        "evidence" : [ {
+          "evidenceId" : "E7",
+          "source" : "resume",
+          "quote" : "某大学 统计学 本科"
+        }, {
+          "evidenceId" : "E8",
+          "source" : "resume",
+          "quote" : "CET-6 通过；全国计算机等级考试二级"
+        } ],
+        "uncertainty" : false
+      }, {
+        "name" : "加分项与潜力",
+        "weight" : 15.0,
+        "score" : 13.5,
+        "maxScore" : 15.0,
+        "conclusion" : "零售分析、统计学基础、A/B实验均命中",
+        "evidence" : [ {
+          "evidenceId" : "E9",
+          "source" : "resume",
+          "quote" : "某零售科技有限公司 数据分析实习生"
+        }, {
+          "evidenceId" : "E10",
+          "source" : "resume",
+          "quote" : "参与 2 次 A/B 实验设计"
+        } ],
+        "uncertainty" : false
+      } ],
+      "hits" : [ {
+        "requirement" : "熟练使用 SQL",
+        "resumeQuote" : "SQL、Python（pandas/numpy）",
+        "comment" : "技能列出SQL"
+      }, {
+        "requirement" : "熟悉至少一种 BI 工具",
+        "resumeQuote" : "基于 Tableau 搭建经营看板",
+        "comment" : "使用Tableau"
+      }, {
+        "requirement" : "有 A/B 实验落地经验",
+        "resumeQuote" : "参与 2 次 A/B 实验设计",
+        "comment" : "命中加分项"
+      } ],
+      "gaps" : [ {
+        "requirement" : "本科及以上学历",
+        "gapType" : "学历不符",
+        "severity" : "中",
+        "suggestion" : "2026年毕业取得学历后全职"
+      }, {
+        "requirement" : "正式数据分析师职级",
+        "gapType" : "经验不足",
+        "severity" : "中",
+        "suggestion" : "仅实习经历需补充全职验证"
+      }, {
+        "requirement" : "业务指标体系搭建",
+        "gapType" : "经验不足",
+        "severity" : "低",
+        "suggestion" : "实习为看板需补充0-1搭建"
+      } ],
+      "risks" : [ {
+        "risk" : "候选人为本科在读",
+        "reason" : "本科在读（2026 届）",
+        "evidenceRef" : null
+      }, {
+        "risk" : "实习周期短",
+        "reason" : "简历实习仅约6个月",
+        "evidenceRef" : null
+      } ],
+      "evidenceIndex" : [ {
+        "evidenceId" : "E1",
+        "source" : "resume",
+        "quote" : "SQL、Python（pandas/numpy）"
+      }, {
+        "evidenceId" : "E2",
+        "source" : "resume",
+        "quote" : "使用 SQL 完成订单、商品、用户三表关联分析"
+      }, {
+        "evidenceId" : "E3",
+        "source" : "resume",
+        "quote" : "2025.07-2025.12"
+      }, {
+        "evidenceId" : "E4",
+        "source" : "resume",
+        "quote" : "本科在读（2026 届）"
+      }, {
+        "evidenceId" : "E5",
+        "source" : "resume",
+        "quote" : "基于 Tableau 搭建经营看板"
+      }, {
+        "evidenceId" : "E6",
+        "source" : "resume",
+        "quote" : "参与 2 次 A/B 实验设计"
+      }, {
+        "evidenceId" : "E7",
+        "source" : "resume",
+        "quote" : "某大学 统计学 本科"
+      }, {
+        "evidenceId" : "E8",
+        "source" : "resume",
+        "quote" : "CET-6 通过；全国计算机等级考试二级"
+      }, {
+        "evidenceId" : "E9",
+        "source" : "resume",
+        "quote" : "某零售科技有限公司 数据分析实习生"
+      }, {
+        "evidenceId" : "E10",
+        "source" : "resume",
+        "quote" : "参与 2 次 A/B 实验设计"
+      } ],
+      "uncertaintyFlags" : [ ],
+      "notes" : [ "总分采用「硬性技能锚定校准」：校准总分 = 0.70 × 五维加权原始分 + 0.30 × 硬性技能匹配原始分 × 10；本次五维加权原始分 80.0 分，硬性技能匹配原始分 9.0/10，校准后总分 83.0 分。档位阈值：高度匹配 ≥ 81.0；47.0–80.9 较匹配；20.0–46.9 一般；< 20.0 不匹配。" ]
+    },
+    "meta" : {
+      "jdParse" : {
+        "agent" : "jd-parse",
+        "model" : "deepseek-flash",
+        "elapsedMs" : 15053,
+        "promptTokens" : 632,
+        "completionTokens" : 3371,
+        "totalTokens" : 4003,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "resumeParse" : {
+        "agent" : "resume-parse",
+        "model" : "deepseek-flash",
+        "elapsedMs" : 5716,
+        "promptTokens" : 764,
+        "completionTokens" : 1559,
+        "totalTokens" : 2323,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "matchEval" : {
+        "agent" : "match-eval",
+        "model" : "deepseek-v4-pro",
+        "elapsedMs" : 164016,
+        "promptTokens" : 1512,
+        "completionTokens" : 9475,
+        "totalTokens" : 10987,
+        "attempts" : 1,
+        "retried" : false
+      },
+      "matchModel" : "deepseek-v4-pro",
+      "dimensionCount" : 5,
+      "uncertaintyCount" : 0,
+      "invalidDimensions" : [ ],
+      "renormalized" : false,
+      "retryReason" : null
+    }
+  },
+  "events" : [ {
+    "name" : "task.started",
+    "payloadJson" : "{\"total_agents\":3}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-flash\",\"agent_name\":\"JD_PARSE\"}",
+    "offsetMs" : 0
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-flash\",\"agent_name\":\"RESUME_PARSE\"}",
+    "offsetMs" : 1
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":1464,\"agent_name\":\"RESUME_PARSE\"}",
+    "offsetMs" : 1465
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"RESUME_PARSE\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":2323,\"latency_ms\":5716}",
+    "offsetMs" : 5717
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"JD_PARSE\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":4003,\"latency_ms\":15053}",
+    "offsetMs" : 15054
+  }, {
+    "name" : "agent.started",
+    "payloadJson" : "{\"model\":\"deepseek-v4-pro\",\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 15055
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":1407,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 16462
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":6403,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 21458
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":11408,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 26463
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":16407,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 31462
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":21415,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 36470
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":26410,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 41465
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":31405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 46460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":36402,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 51457
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":41414,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 56469
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":46408,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 61463
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":51409,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 66464
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":56403,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 71458
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":61415,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 76470
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":66405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 81460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":71405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 86460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":76401,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 91457
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":81405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 96460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":86413,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 101468
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":91414,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 106469
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":96408,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 111463
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":101411,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 116466
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":106399,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 121454
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":111412,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 126467
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":116410,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 131465
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":121405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 136460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":126402,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 141457
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":131405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 146460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":136408,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 151464
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":141398,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 156453
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":146405,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 161460
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":151409,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 166464
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":156413,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 171468
+  }, {
+    "name" : "agent.progress",
+    "payloadJson" : "{\"elapsed_ms\":161402,\"agent_name\":\"MATCH_EVAL\"}",
+    "offsetMs" : 176457
+  }, {
+    "name" : "agent.finished",
+    "payloadJson" : "{\"attempts\":1,\"agent_name\":\"MATCH_EVAL\",\"retried\":false,\"status\":\"SUCCEEDED\",\"total_tokens\":10987,\"latency_ms\":164016}",
+    "offsetMs" : 179071
+  }, {
+    "name" : "report.ready",
+    "payloadJson" : "{\"overall_score\":83.0,\"cache_hit\":false,\"report_url\":\"/api/v1/tasks/s7a-C03/report\",\"level\":\"高度匹配\"}",
+    "offsetMs" : 179082
+  }, {
+    "name" : "task.finished",
+    "payloadJson" : "{\"status\":\"SUCCEEDED\",\"token_total\":17313,\"duration_ms\":179078}",
+    "offsetMs" : 179084
+  } ]
+}

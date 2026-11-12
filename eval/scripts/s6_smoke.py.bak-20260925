@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+OfferPilot S6 模拟面试后端接口冒烟脚本（最小可复跑）
+============================================================
+职责：启动后端（spring-boot:run，端口 8083）→ 创建匹配任务 → 等待报告 →
+      A10 开启面试 → A11 提交回答 → A13 提前 finish → 校验会话落盘与事件流。
+用法：
+  python s6_smoke.py                 # 默认：自动启停后端（C01 用例，端口 8083）
+  python s6_smoke.py --no-start      # 复用已在运行的后端（不自动启停）
+  python s6_smoke.py --port 8084 --case C01 --keep
+退出码：0=全部断言通过；1=任一断言失败；2=环境/启动失败。
+依赖：python3（标准库 urllib）、mvn 在 PATH 或 MAVEN_HOME 可用、JAVA_HOME 可选。
+"""
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+import urllib.request
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]          # offer-pilot/
+BACKEND_DIR = ROOT / "backend"
+EVAL_DATASET = ROOT / "eval" / "dataset"
+SESS_DIR = BACKEND_DIR / "data" / "session"
+
+
+def http_json(url, data=None, timeout=180):
+    body = json.dumps(data).encode("utf-8") if data is not None else b""
+    req = urllib.request.Request(
+        url, data=body, headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST" if data is not None else "GET")
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def wait_port(port, seconds=120):
+    import socket
+    t0 = time.time()
+    while time.time() - t0 < seconds:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(1)
+            if s.connect_ex(("127.0.0.1", port)) == 0:
+                return True
+        time.sleep(2)
+    return False
+
+
+def check(cond, msg):
+    cond = bool(cond)
+    print(("[PASS] " if cond else "[FAIL] ") + msg)
+    return cond
+
+
+def start_backend(port, log_file):
+    """启动 spring-boot:run，返回 Popen；端口已占用时返回 None。"""
+    if wait_port(port, seconds=3):
+        return None  # 已有后端在运行
+    env = os.environ.copy()
+    java_home = os.environ.get("JAVA_HOME")
+    mvn = shutil.which("mvn") or shutil.which("mvn.cmd")
+    if not mvn:
+        raise SystemExit("[FAIL] 未找到 mvn，请配置 MAVEN_HOME 或加入 PATH")
+    if not java_home:
+        # 常见 JDK 安装位置兜底
+        for p in (r"C:\Program Files\Java\jdk-21.0.10", r"C:\Program Files\Java\jdk-17"):
+            if Path(p).exists():
+                java_home = p
+                break
+    if java_home:
+        env["JAVA_HOME"] = java_home
+        env["PATH"] = java_home + r"\bin;" + env.get("PATH", "")
+    logf = open(log_file, "w", encoding="utf-8", errors="replace")
+    proc = subprocess.Popen(
+        [mvn, "spring-boot:run", f"-Dspring-boot.run.arguments=--server.port={port}"],
+        cwd=str(BACKEND_DIR), env=env, stdout=logf, stderr=subprocess.STDOUT)
+    if not wait_port(port, seconds=180):
+        proc.terminate()
+        raise SystemExit(f"[FAIL] 后端 {port} 端口 180s 内未就绪，日志见 {log_file}")
+    print(f"[INFO] 后端已启动（PID={proc.pid}，端口 {port}）")
+    return proc
+
+
+def main():
+    ap = argparse.ArgumentParser(description="OfferPilot S6 冒烟")
+    ap.add_argument("--port", type=int, default=8083)
+    ap.add_argument("--case", default="C01")
+    ap.add_argument("--task-no", default="SMOKE_S6")
+    ap.add_argument("--no-start", action="store_true", help="复用已在运行的后端")
+    ap.add_argument("--keep", action="store_true", help="结束后不自动停止后端")
+    ap.add_argument("--answer", default="我会先分析慢查询日志，使用 EXPLAIN 查看执行计划，定位全表扫描的 SQL，再评估索引与查询重写。")
+    args = ap.parse_args()
+
+    base = f"http://127.0.0.1:{args.port}/api/v1"
+    log_file = ROOT / "eval" / "logs" / f"s6_smoke_{args.task_no}.log"
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+
+    # 1) 启动后端
+    proc = None
+    if not args.no_start:
+        proc = start_backend(args.port, log_file)
+    elif not wait_port(args.port, seconds=5):
+        raise SystemExit(f"[FAIL] --no-start 但端口 {args.port} 未监听")
+    print(f"[INFO] 后端就绪：{base}")
+
+    ok = True
+    try:
+        jd = (EVAL_DATASET / args.case / "jd.txt").read_text(encoding="utf-8")
+        rs = (EVAL_DATASET / args.case / "resume.txt").read_text(encoding="utf-8")
+    except FileNotFoundError:
+        raise SystemExit(f"[FAIL] 用例 {args.case} 缺少 jd.txt/resume.txt：{EVAL_DATASET / args.case}")
+
+    # 2) 创建任务 + 等待报告
+    r = http_json(f"{base}/tasks", {"taskNo": args.task_no, "jdText": jd, "resumeText": rs})
+    ok &= check(r["code"] == 0 and r["data"]["taskNo"] == args.task_no, "创建任务")
+    report = None
+    for _ in range(30):
+        time.sleep(3)
+        d = http_json(f"{base}/tasks/{args.task_no}/report")["data"]
+        if d.get("report"):
+            report = d["report"]
+            break
+    ok &= check(report is not None, "匹配报告生成")
+    if report:
+        ok &= check(report.get("overallScore") is not None, f"报告含 overallScore={report['overallScore']}")
+
+    # 3) A10 开启面试
+    a10 = http_json(f"{base}/tasks/{args.task_no}/interviews", {})
+    ok &= check(a10["code"] == 0 and a10["data"]["status"] == "ONGOING", "A10 开启面试")
+    sid = a10["data"]["session_id"]
+
+    # 4) 会话落盘校验
+    sess_files = list(SESS_DIR.glob(f"session-{sid}.json"))
+    ok &= check(bool(sess_files), f"会话落盘 data/session/session-{sid}.json")
+    if sess_files:
+        rec = json.loads(sess_files[0].read_text(encoding="utf-8"))
+        ok &= check(rec.get("status") == "ONGOING" and rec.get("transcript"), "落盘会话含 transcript")
+        ok &= check(rec.get("report") is not None and rec.get("jdText") is not None
+                    and rec.get("resumeText") is not None, "落盘会话含 report + JD/简历原文")
+
+    # 5) A11 提交回答（第 1 轮）
+    a11 = http_json(f"{base}/interviews/{sid}/messages", {"answer": args.answer})
+    ok &= check(a11["code"] == 0 and a11["data"]["round_no"] == 2, "A11 回答后进入第 2 轮")
+    last_turn = a11["data"]["transcript"][-2] if len(a11["data"]["transcript"]) >= 2 else None
+    ok &= check(last_turn is not None and last_turn.get("score") is not None, "第 1 轮已评分")
+
+    # 6) A13 提前 finish
+    fin = http_json(f"{base}/interviews/{sid}/finish")
+    ok &= check(fin["code"] == 0 and fin["data"]["status"] == "FINISHED", "A13 finish 提前结束")
+    ok &= check(bool(fin["data"].get("summary_md")), "总结 summary_md 生成")
+
+    # 7) 事件流校验（Last-Event-ID 补齐语义）
+    ev = http_json(f"{base}/interviews/{sid}/events?after=0")["data"]
+    ok &= check(len(ev) > 0, f"事件流共 {len(ev)} 条")
+    if ev:
+        last_seq = max(e["seq"] for e in ev)
+        ev2 = http_json(f"{base}/interviews/{sid}/events?after={last_seq - 2}")["data"]
+        ok &= check(ev2 and ev2[0]["seq"] == last_seq - 1, f"after 断线补齐返回 seq {ev2[0]['seq'] if ev2 else '?'}~{last_seq}")
+
+    print(f"\n===== S6 冒烟 {'PASS' if ok else 'FAIL'} =====")
+    if proc is not None and not args.keep:
+        proc.terminate()
+        print(f"[INFO] 已停止冒烟启动的后端（PID={proc.pid}）")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except KeyboardInterrupt:
+        sys.exit(2)

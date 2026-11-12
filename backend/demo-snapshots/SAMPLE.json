@@ -1,0 +1,424 @@
+{
+  "caseId": "SAMPLE",
+  "jdDigest": "996cf6cd5f8e9a0b1fe411d5610003fbc4b7851446e7bf20f14e3713d3ad25f6",
+  "resumeDigest": "74661fd9d1b57e0b3027beeed871433ff94d5caed8e9854f5a1c7c2c31272ae3",
+  "createdAt": "2026-10-06 19:44:18",
+  "matchModel": "deepseek-v4-pro",
+  "durationMs": 107399,
+  "tokenTotal": 12338,
+  "response": {
+    "report": {
+      "overallScore": 27.4,
+      "level": "一般",
+      "dimensions": [
+        {
+          "name": "硬性技能匹配",
+          "weight": 30.0,
+          "score": 9.0,
+          "maxScore": 30.0,
+          "conclusion": "Java命中；Spring Boot/MySQL/后端/LLM未体现",
+          "evidence": [
+            {
+              "evidenceId": "E1",
+              "source": "jd",
+              "quote": "熟悉 Java 或 Python 至少一门语言"
+            },
+            {
+              "evidenceId": "E2",
+              "source": "resume",
+              "quote": "系统学习过 C 语言与 Java"
+            }
+          ],
+          "uncertainty": false
+        },
+        {
+          "name": "经验年限与职级",
+          "weight": 20.0,
+          "score": 0.0,
+          "maxScore": 20.0,
+          "conclusion": "原文信息不足",
+          "evidence": [],
+          "uncertainty": true
+        },
+        {
+          "name": "项目与成果相关度",
+          "weight": 25.0,
+          "score": 0.0,
+          "maxScore": 25.0,
+          "conclusion": "简历无项目无比赛经历，相关度极低",
+          "evidence": [
+            {
+              "evidenceId": "E3",
+              "source": "jd",
+              "quote": "参与公司 AI 应用产品的后端开发"
+            },
+            {
+              "evidenceId": "E4",
+              "source": "resume",
+              "quote": "暂无奖学金、暂无项目、暂无比赛经历"
+            }
+          ],
+          "uncertainty": false
+        },
+        {
+          "name": "教育与证书",
+          "weight": 10.0,
+          "score": 9.0,
+          "maxScore": 10.0,
+          "conclusion": "专业和学历均符合要求",
+          "evidence": [
+            {
+              "evidenceId": "E5",
+              "source": "jd",
+              "quote": "计算机相关专业本科及以上在读"
+            }
+          ],
+          "uncertainty": false
+        },
+        {
+          "name": "加分项与潜力",
+          "weight": 15.0,
+          "score": 3.0,
+          "maxScore": 15.0,
+          "conclusion": "加分项均未命中，自学意愿尚可",
+          "evidence": [
+            {
+              "evidenceId": "E6",
+              "source": "jd",
+              "quote": "有开源项目或个人技术博客"
+            },
+            {
+              "evidenceId": "E7",
+              "source": "resume",
+              "quote": "具备较强的自学能力，愿意投入时间钻研新技术与新工具"
+            }
+          ],
+          "uncertainty": false
+        }
+      ],
+      "hits": [
+        {
+          "requirement": "熟悉 Java 或 Python",
+          "resumeQuote": "系统学习过 C 语言与 Java",
+          "comment": "Java满足语言要求"
+        },
+        {
+          "requirement": "大三优先",
+          "resumeQuote": "本科在读（大三）",
+          "comment": "年级符合优先条件"
+        }
+      ],
+      "gaps": [
+        {
+          "requirement": "Spring Boot、MySQL",
+          "gapType": "技能缺失",
+          "severity": "高",
+          "suggestion": "需补充后端框架和数据库能力"
+        },
+        {
+          "requirement": "Prompt 工程、RAG",
+          "gapType": "技能缺失",
+          "severity": "高",
+          "suggestion": "需学习大模型应用基础"
+        },
+        {
+          "requirement": "每周可实习 4 天以上",
+          "gapType": "经验不足",
+          "severity": "中",
+          "suggestion": "需确认可实习时间"
+        }
+      ],
+      "risks": [
+        {
+          "risk": "缺乏后端与LLM项目经验",
+          "reason": "简历无项目且未提Spring/MySQL/RAG",
+          "evidenceRef": null
+        },
+        {
+          "risk": "未提供可实习时间",
+          "reason": "JD要求每周4天3个月以上",
+          "evidenceRef": null
+        }
+      ],
+      "evidenceIndex": [
+        {
+          "evidenceId": "E1",
+          "source": "jd",
+          "quote": "熟悉 Java 或 Python 至少一门语言"
+        },
+        {
+          "evidenceId": "E2",
+          "source": "resume",
+          "quote": "系统学习过 C 语言与 Java"
+        },
+        {
+          "evidenceId": "E3",
+          "source": "jd",
+          "quote": "参与公司 AI 应用产品的后端开发"
+        },
+        {
+          "evidenceId": "E4",
+          "source": "resume",
+          "quote": "暂无奖学金、暂无项目、暂无比赛经历"
+        },
+        {
+          "evidenceId": "E5",
+          "source": "jd",
+          "quote": "计算机相关专业本科及以上在读"
+        },
+        {
+          "evidenceId": "E6",
+          "source": "jd",
+          "quote": "有开源项目或个人技术博客"
+        },
+        {
+          "evidenceId": "E7",
+          "source": "resume",
+          "quote": "具备较强的自学能力，愿意投入时间钻研新技术与新工具"
+        }
+      ],
+      "uncertaintyFlags": [
+        "经验年限与职级"
+      ],
+      "notes": [
+        "总分采用「硬性技能锚定校准」：校准总分 = 0.70 × 五维加权原始分 + 0.30 × 硬性技能匹配原始分 × 10；本次五维加权原始分 26.3 分，硬性技能匹配原始分 3.0/10，校准后总分 27.4 分。档位阈值：高度匹配 ≥ 81.0；47.0–80.9 较匹配；20.0–46.9 一般；< 20.0 不匹配。",
+        "以下维度因全部结论缺少可定位的原文证据，已从总分计算中剔除并按剩余权重归一化：经验年限与职级。该维度信息不足，评分仅供参考。",
+        "总分基于 4/5 个有效维度计算，有效维度权重合计 80 分（满权重 100 分）。",
+        "命中项中有 1 条因 resume_quote 无法在简历原文中定位被丢弃。"
+      ],
+      "rewriteSuggestions": [
+        {
+          "original": "系统学习过 C 语言与 Java，通过课程实践完成过基础算法与小型程序的编写；了解面向对象编程的基本思想。",
+          "rewritten": "掌握 Java 语言与面向对象编程基础，能够独立完成基础算法与小型程序的编写；正在学习 Spring Boot、MySQL 后端开发，并计划通过课程设计项目沉淀实践案例。",
+          "reason": "JD 要求熟悉 Java 与 Spring Boot 后端开发，当前表述停留在课程学习层面，未体现后端技术栈与工程实践，建议补充技术栈学习进度与可展示实践。",
+          "reference": "硬性技能匹配"
+        },
+        {
+          "original": "本科在读（大三）",
+          "rewritten": "本科在读（大三），可保证每周 4 天以上实习时间，实习期不少于 3 个月",
+          "reason": "JD 明确要求每周可实习 4 天以上且不少于 3 个月，简历未说明可实习时间，属于高优先级缺口，建议明确时间承诺以提高匹配度。",
+          "reference": "每周可实习 4 天以上"
+        },
+        {
+          "original": "暂无奖学金、暂无项目、暂无比赛经历。",
+          "rewritten": "正在参与课程设计项目，可按「背景-任务-行动-结果」结构整理为 1-2 个可展示案例（如 Java 综合课程项目），并持续沉淀到个人仓库。",
+          "reason": "评估识别出缺乏后端与 LLM 项目经验的风险，无项目经历是核心短板，建议尽早将课程实践整理为可量化的项目描述。",
+          "reference": "项目与成果相关度"
+        },
+        {
+          "original": "具备较强的自学能力，愿意投入时间钻研新技术与新工具；做事细致，注重文档与表达的规范性。",
+          "rewritten": "具备较强的自学能力，已通过课程自学 Java 并完成小型程序实践；正在自学 Spring Boot 与 RAG 大模型应用，方向与岗位技术栈对齐，注重文档与表达的规范性。",
+          "reason": "JD 加分项要求了解 Prompt 工程与 RAG 应用，建议在自我评价中把学习方向与岗位技术栈显式对齐，便于评估师识别加分项。",
+          "reference": "加分项与潜力"
+        }
+      ]
+    },
+    "meta": {
+      "jdParse": {
+        "agent": "jd-parse",
+        "model": "deepseek-flash",
+        "elapsedMs": 1592,
+        "promptTokens": 686,
+        "completionTokens": 153,
+        "totalTokens": 839,
+        "attempts": 1,
+        "retried": false
+      },
+      "resumeParse": {
+        "agent": "resume-parse",
+        "model": "deepseek-flash",
+        "elapsedMs": 11038,
+        "promptTokens": 1274,
+        "completionTokens": 2606,
+        "totalTokens": 3880,
+        "attempts": 1,
+        "retried": false
+      },
+      "matchEval": {
+        "agent": "match-eval",
+        "model": "deepseek-v4-pro",
+        "elapsedMs": 94769,
+        "promptTokens": 2062,
+        "completionTokens": 5557,
+        "totalTokens": 7619,
+        "attempts": 1,
+        "retried": false
+      },
+      "matchModel": "deepseek-v4-pro",
+      "dimensionCount": 5,
+      "uncertaintyCount": 1,
+      "invalidDimensions": [
+        "经验年限与职级"
+      ],
+      "renormalized": true,
+      "retryReason": null
+    }
+  },
+  "events": [
+    {
+      "name": "task.started",
+      "payloadJson": "{\"total_agents\": 3}",
+      "offsetMs": 0
+    },
+    {
+      "name": "agent.started",
+      "payloadJson": "{\"model\": \"deepseek-flash\", \"agent_name\": \"JD_PARSE\"}",
+      "offsetMs": 50
+    },
+    {
+      "name": "agent.started",
+      "payloadJson": "{\"model\": \"deepseek-flash\", \"agent_name\": \"RESUME_PARSE\"}",
+      "offsetMs": 51
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 900, \"agent_name\": \"JD_PARSE\"}",
+      "offsetMs": 950
+    },
+    {
+      "name": "agent.finished",
+      "payloadJson": "{\"attempts\": 1, \"agent_name\": \"JD_PARSE\", \"retried\": false, \"status\": \"SUCCEEDED\", \"total_tokens\": 839, \"latency_ms\": 1592}",
+      "offsetMs": 1650
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 2759, \"agent_name\": \"RESUME_PARSE\"}",
+      "offsetMs": 2810
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 5519, \"agent_name\": \"RESUME_PARSE\"}",
+      "offsetMs": 5570
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 8278, \"agent_name\": \"RESUME_PARSE\"}",
+      "offsetMs": 8329
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 11038, \"agent_name\": \"RESUME_PARSE\"}",
+      "offsetMs": 11089
+    },
+    {
+      "name": "agent.finished",
+      "payloadJson": "{\"attempts\": 1, \"agent_name\": \"RESUME_PARSE\", \"retried\": false, \"status\": \"SUCCEEDED\", \"total_tokens\": 3880, \"latency_ms\": 11038}",
+      "offsetMs": 11089
+    },
+    {
+      "name": "agent.started",
+      "payloadJson": "{\"model\": \"deepseek-v4-pro\", \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 11098
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 4987, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 16085
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 9975, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 21073
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 14963, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 26061
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 19951, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 31049
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 24939, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 36037
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 29927, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 41025
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 34914, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 46012
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 39902, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 51000
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 44890, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 55988
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 49878, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 60976
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 54866, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 65964
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 59854, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 70952
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 64841, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 75939
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 69829, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 80927
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 74817, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 85915
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 79805, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 90903
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 84793, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 95891
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 89781, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 100879
+    },
+    {
+      "name": "agent.progress",
+      "payloadJson": "{\"elapsed_ms\": 94769, \"agent_name\": \"MATCH_EVAL\"}",
+      "offsetMs": 105867
+    },
+    {
+      "name": "agent.finished",
+      "payloadJson": "{\"attempts\": 1, \"agent_name\": \"MATCH_EVAL\", \"retried\": false, \"status\": \"SUCCEEDED\", \"total_tokens\": 7619, \"latency_ms\": 94769}",
+      "offsetMs": 105867
+    },
+    {
+      "name": "report.ready",
+      "payloadJson": "{\"overall_score\": 27.4, \"cache_hit\": false, \"report_url\": \"/api/v1/tasks/SAMPLE/report\", \"level\": \"一般\"}",
+      "offsetMs": 105887
+    },
+    {
+      "name": "task.finished",
+      "payloadJson": "{\"status\": \"SUCCEEDED\", \"token_total\": 12338, \"duration_ms\": 107399, \"offline_replay\": true}",
+      "offsetMs": 106267
+    }
+  ]
+}
