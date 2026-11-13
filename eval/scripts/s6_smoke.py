@@ -60,16 +60,20 @@ def start_backend(port, log_file):
     if wait_port(port, seconds=3):
         return None  # 已有后端在运行
     env = os.environ.copy()
-    java_home = os.environ.get("JAVA_HOME")
+    java_home = os.environ.get("OFFERPILOT_JDK") or os.environ.get("JAVA_HOME")
     mvn = shutil.which("mvn") or shutil.which("mvn.cmd")
     if not mvn:
         raise SystemExit("[FAIL] 未找到 mvn，请配置 MAVEN_HOME 或加入 PATH")
     if not java_home:
-        # 常见 JDK 安装位置兜底
-        for p in (r"C:\Program Files\Java\jdk-21.0.10", r"C:\Program Files\Java\jdk-17"):
-            if Path(p).exists():
-                java_home = p
-                break
+        # 未设置 JAVA_HOME / OFFERPILOT_JDK 时，扫描本机 JDK 安装目录兜底
+        cands = []
+        for base in (Path(r"C:\Program Files\Java"), Path(r"C:\Program Files\Eclipse Adoptium"),
+                     Path(r"C:\Program Files\Microsoft"), Path(r"C:\Program Files\Zulu")):
+            if base.is_dir():
+                cands += sorted(base.glob("jdk-2[0-9]*"))
+        cands = [c for c in cands if (c / "bin" / "java.exe").exists()]
+        if cands:
+            java_home = str(cands[-1])
     if java_home:
         env["JAVA_HOME"] = java_home
         env["PATH"] = java_home + r"\bin;" + env.get("PATH", "")

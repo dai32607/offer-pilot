@@ -1,3 +1,14 @@
+---
+AIGC:
+    Label: "1"
+    ContentProducer: 001191440300708461136T1XGW3
+    ProduceID: 7e31f3781dc8b267166eacacebe5c672_d09a8241df4911f1913b525400393706
+    ReservedCode1: tBSCWeIdMcNmespFdtwgzXG811dT4YRW7cwPsnys+EsbfJKw4I5iDm7XLYVNw02YF/dgQManiebhndD6I50kAtafJR4j2jqUS+KXjXC7RVciHyOK31HyXqsth0cqc++mgemDeFd+eUV4fCtmumTHd8ZdJiEXF8h32K+ef+lIZw5Pe3o7cCCouWi8ym8=
+    ContentPropagator: 001191440300708461136T1XGW3
+    PropagateID: 7e31f3781dc8b267166eacacebe5c672_d09a8241df4911f1913b525400393706
+    ReservedCode2: tBSCWeIdMcNmespFdtwgzXG811dT4YRW7cwPsnys+EsbfJKw4I5iDm7XLYVNw02YF/dgQManiebhndD6I50kAtafJR4j2jqUS+KXjXC7RVciHyOK31HyXqsth0cqc++mgemDeFd+eUV4fCtmumTHd8ZdJiEXF8h32K+ef+lIZw5Pe3o7cCCouWi8ym8=
+---
+
 # OfferPilot 架构说明
 
 本文档描述 OfferPilot 当前代码的真实分层、核心链路、评分与容错机制。所有内容均以仓库内源码与配置为准（`backend/src/main/java/com/offerpilot`、`backend/src/main/resources/application.yml`、`frontend/src`），不含未实现的设计设想。

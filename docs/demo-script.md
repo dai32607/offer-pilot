@@ -9,7 +9,7 @@
 
 | 项 | 值 |
 |---|---|
-| 后端 | `http://localhost:8083`（以 backend-args.txt 的 `--server.port=8083` 启动），JDK21：`C:\Program Files\Java\jdk-21.0.10` |
+| 后端 | `http://localhost:8083`（以 backend-args.txt 的 `--server.port=8083` 启动），运行时需 JDK 21（`JAVA_HOME` 指向 JDK 21） |
 | 前端 | `http://localhost:5173`（Vite，`/api` 代理到 8083） |
 | 演示样本 | C01（`eval\dataset\C01\jd.txt` + `resume.txt`）；面试演示样本 S6C01 |
 | 缓存目录 | `backend\demo-cache`（默认开启） |
@@ -107,7 +107,6 @@
 4. 同档率、ρ、MAE 只作内部优化参考，**不得表述为准确率**。
 5. C01 处于阈值临界带附近，单例结果不代表整体表现。
 6. S6 面试演示为**单次示例会话**（平均分 77.3），仅演示轮次问答、自动总结与快照回放能力，**不构成对候选人水平的评估结论**。
-*（内容由AI生成，仅供参考）*
 
 ---
 

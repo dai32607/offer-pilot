@@ -27,7 +27,18 @@ from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # offer-pilot 根
 DEFAULT_PORT = 8083
-DEFAULT_JAVA = r"C:\Program Files\Java\jdk-21.0.10\bin\java.exe"
+def _detect_java():
+    """java 可执行文件定位：OFFERPILOT_JAVA > JAVA_HOME > PATH。"""
+    if os.environ.get("OFFERPILOT_JAVA"):
+        return os.environ["OFFERPILOT_JAVA"]
+    if os.environ.get("JAVA_HOME"):
+        cand = os.path.join(os.environ["JAVA_HOME"], "bin", "java.exe")
+        if os.path.isfile(cand):
+            return cand
+    return "java"
+
+
+DEFAULT_JAVA = _detect_java()
 DEFAULT_ARGS = os.path.join(BASE_DIR, "backend", "target", "offerpilot-backend.jar")
 
 JD_TEXT = (
