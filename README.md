@@ -43,6 +43,8 @@ JD 原文  ──▶ JD 解析 Agent      ──▶ 结构化职位画像
 
 模型路由策略：解析类轻量任务使用 `deepseek-flash`，评估、改写与面试官等推理任务使用 `deepseek-v4-pro`，通过两个命名 Bean 分别注入，便于按任务特性切换。
 
+> 分层结构、核心链路时序、评分与权重重归一化规则、JSON 容错与 SSE 事件流的实现细节见 [docs/architecture.md](docs/architecture.md)。
+
 ## 界面展示
 
 以下截图取自本项目实际运行界面（深色主题，离线快照回放模式），完整演示流程见 [docs/demo-script.md](docs/demo-script.md)。
