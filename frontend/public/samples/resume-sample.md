@@ -1,16 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 7e31f3781dc8b267166eacacebe5c672_c6144488b11911f18874525400287e28
-    ReservedCode1: ZPyOkM3sejlL9/zQmRQlxz+k63s0PCCyEE6En/vvUvRPIkHTFICnIP/XAWr4owkQU0K73uMq/NrwJiU2HGJnfOhoQhLDG32dsnmlsBe8dlR/9rvgFKbX0fodj/aPtLzixHHgoctfjneJynv/gP3BXV71Y9xZT1kQWCZBwkblaiYubDV2Cfx8YFiBv0w=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 7e31f3781dc8b267166eacacebe5c672_c6144488b11911f18874525400287e28
-    ReservedCode2: ZPyOkM3sejlL9/zQmRQlxz+k63s0PCCyEE6En/vvUvRPIkHTFICnIP/XAWr4owkQU0K73uMq/NrwJiU2HGJnfOhoQhLDG32dsnmlsBe8dlR/9rvgFKbX0fodj/aPtLzixHHgoctfjneJynv/gP3BXV71Y9xZT1kQWCZBwkblaiYubDV2Cfx8YFiBv0w=
----
-
-
-
 # 个人简历（示例）
 
 | 项目 | 内容 |

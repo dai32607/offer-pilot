@@ -1,5 +1,7 @@
 # OfferPilot · JD-简历匹配分析平台
 
+[![CI](https://github.com/dai32607/offer-pilot/actions/workflows/ci.yml/badge.svg)](https://github.com/dai32607/offer-pilot/actions/workflows/ci.yml)
+
 > 基于大模型的招聘匹配分析系统：将 JD 与简历结构化后做多维加权评估，输出匹配得分、缺口项与改写建议，并提供 AI 面试官多轮模拟面试能力。
 
 ## 核心特性
@@ -41,6 +43,18 @@ JD 原文  ──▶ JD 解析 Agent      ──▶ 结构化职位画像
 
 模型路由策略：解析类轻量任务使用 `deepseek-flash`，评估、改写与面试官等推理任务使用 `deepseek-v4-pro`，通过两个命名 Bean 分别注入，便于按任务特性切换。
 
+## 界面展示
+
+以下截图取自本项目实际运行界面（深色主题，离线快照回放模式），完整演示流程见 [docs/demo-script.md](docs/demo-script.md)。
+
+| 上传与分析入口 | 分阶段解析进度（SSE 事件流） |
+|---|---|
+| ![](docs/screenshots/upload-page-dark.png) | ![](docs/screenshots/shot2-waiting-ui.png) |
+
+| 匹配报告（维度得分 / 命中项 / 缺口项） | AI 面试官多轮模拟面试 |
+|---|---|
+| ![](docs/screenshots/shot1-report-dark.png) | ![](docs/screenshots/shot3-interview-dark.png) |
+
 ## 快速开始
 
 ### 环境要求
@@ -80,6 +94,12 @@ npm run dev
 
 前端默认监听 `5173` 端口，开发服务器已将 `/api` 请求代理至后端 `8083`。
 
+### 离线演示包（免配置环境）
+
+不想配置 JDK / Node / 大模型 API Key，可直接下载编译产物包：**[OfferPilot-Demo.zip](https://github.com/dai32607/offer-pilot/releases/download/v1.0.0/OfferPilot-Demo.zip)**
+
+包内为已编译的前后端产物与内置演示快照，解压即可运行：无需安装依赖、无需配置 API Key，未配置 Key 时依赖大模型的在线调用自动降级，离线快照回放与界面浏览完整可用。
+
 ## 目录结构
 
 ```
@@ -107,3 +127,9 @@ deepseek:
 - 匹配得分为多维度加权计算的综合评估结果，用于辅助筛选与自我优化，不代表招聘决策。
 - 未配置 API Key 时，依赖大模型的环节将降级或失败，离线快照回放不受影响。
 - 评测集规模有限，模型在长文本与中英混合输入下的稳定性仍在持续验证。
+
+## 许可证
+
+本项目基于 [MIT License](LICENSE) 开源，可自由使用、修改与分发。
+
+Copyright (c) 2026 代殷佳宁 (Dai Yining)

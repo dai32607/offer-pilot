@@ -1,14 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 7e31f3781dc8b267166eacacebe5c672_7ee72214c3c411f19063525400393706
-    ReservedCode1: XEXS/Qijrc5rPv/TZ3T9m6fCdEbnflfhLU+xJatPvMrXJ77TQ8W4lHjU7USn762knjjch+DDrw+ARV3nrIrl8JA9XkuC2OX6fZc0j+VGsHBGrH9rD2EpujOgi0/w/+kyeWS5ZTbqiXRRaC7lvWd+nHEBrkuWex8o08kxOai45m/1m1UHW2VJE93NRLg=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 7e31f3781dc8b267166eacacebe5c672_7ee72214c3c411f19063525400393706
-    ReservedCode2: XEXS/Qijrc5rPv/TZ3T9m6fCdEbnflfhLU+xJatPvMrXJ77TQ8W4lHjU7USn762knjjch+DDrw+ARV3nrIrl8JA9XkuC2OX6fZc0j+VGsHBGrH9rD2EpujOgi0/w/+kyeWS5ZTbqiXRRaC7lvWd+nHEBrkuWex8o08kxOai45m/1m1UHW2VJE93NRLg=
----
-
 # OfferPilot 项目上下文（AGENTS.md）
 
 ## 项目定位

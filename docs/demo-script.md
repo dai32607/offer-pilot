@@ -1,14 +1,3 @@
----
-AIGC:
-    Label: "1"
-    ContentProducer: 001191440300708461136T1XGW3
-    ProduceID: 7e31f3781dc8b267166eacacebe5c672_88edfb2db5b611f183e7525400de85a5
-    ReservedCode1: mIW1e2g2elEy0FAkhHNqYjPnXhR96G1e6J9nRxxwop3YcdxGmv2VRO+K5ZTpHD6+pdteriU+NyrxPCXmwhaCVJvkbKkgtuvZHJJzBtexHwj+Z11RLuLz2M5VHX2nk2VmULzY0Oi+mOfJyrT0EGE6zDn+vMqmrJtzo5Ygda7C9kcFMzt1Y7JviP11IA0=
-    ContentPropagator: 001191440300708461136T1XGW3
-    PropagateID: 7e31f3781dc8b267166eacacebe5c672_88edfb2db5b611f183e7525400de85a5
-    ReservedCode2: mIW1e2g2elEy0FAkhHNqYjPnXhR96G1e6J9nRxxwop3YcdxGmv2VRO+K5ZTpHD6+pdteriU+NyrxPCXmwhaCVJvkbKkgtuvZHJJzBtexHwj+Z11RLuLz2M5VHX2nk2VmULzY0Oi+mOfJyrT0EGE6zDn+vMqmrJtzo5Ygda7C9kcFMzt1Y7JviP11IA0=
----
-
 # OfferPilot 演示讲点与口播稿
 
 > 用途：面试现场演示的统一口径。所有分数、指标、术语以本文档为准，避免同一场演示中出现两套数字。
